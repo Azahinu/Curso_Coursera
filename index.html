@@ -1026,7 +1026,7 @@ body.internal-open #internalApp { display: block; }
       </div>
     </div>
 
-    <div style="overflow-x:auto">
+    <div style="overflow-x:auto;margin-bottom:38px">
       <table class="internal-table">
         <thead>
           <tr>
@@ -1039,6 +1039,43 @@ body.internal-open #internalApp { display: block; }
           </tr>
         </thead>
         <tbody id="internalTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- REGISTRO EN VIVO DE VISITAS AL LINK -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px;flex-wrap:wrap;gap:12px;padding-top:20px;border-top:1px solid var(--line)">
+      <div>
+        <h3 style="font-family:'Newsreader',Georgia,serif;font-size:24px;font-weight:400">Registro de visitas y actividad en el enlace</h3>
+        <p style="font-size:13.5px;color:var(--muted)">
+          Muestra cada vez que alguien abre el link, toca el botón de WhatsApp o envía una consulta desde cualquier celular o PC.
+        </p>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <button type="button" id="ignoreSelfBtn" onclick="toggleIgnoreOwnVisits()" class="btn-ghost" style="padding:7px 13px;font-size:12.5px">
+          Excluir mis visitas en este PC
+        </button>
+        <button type="button" onclick="fetchCloudData()" class="btn-ghost" style="padding:7px 13px;font-size:12.5px">
+          ↻ Actualizar visitas ahora
+        </button>
+        <a href="https://ntfy.sh/azahinu_visitas_demos_2026" target="_blank" rel="noopener" class="btn-solid" style="padding:7px 13px;font-size:12.5px">
+          Recibir alertas en mi celular ↗
+        </a>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="internal-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Evento</th>
+            <th>Dispositivo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody id="visitsLogTableBody">
+          <tr><td colspan="4" style="color:var(--muted)">Cargando historial de visitas en tiempo real...</td></tr>
+        </tbody>
       </table>
     </div>
   </div>
@@ -1226,6 +1263,8 @@ function handleConsultationSubmit(e) {
 
   records.unshift(entry);
   saveRecords();
+  publishCloudConsultation(entry);
+  trackLiveEvent('Nueva consulta agendada (Formulario)', `${name} (${phone}) · ${area} · ${selectedDay} ${selectedHour} · ${docs}`);
   renderInternalTable();
 
   document.getElementById('confirmHeading').textContent = `Cita reservada para el ${selectedDay} a las ${selectedHour}`;
@@ -1254,8 +1293,11 @@ function toggleWaPopup(forceOpen) {
   const pop = document.getElementById('waPopup');
   const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !pop.classList.contains('open');
   pop.classList.toggle('open', shouldOpen);
-  if (shouldOpen && document.getElementById('waPopupBody').children.length === 0) {
-    startWaPopupFlow();
+  if (shouldOpen) {
+    trackLiveEvent('Abrió el chat de WhatsApp', 'El visitante hizo clic en el botón de WhatsApp');
+    if (document.getElementById('waPopupBody').children.length === 0) {
+      startWaPopupFlow();
+    }
   }
 }
 
@@ -1347,7 +1389,7 @@ function nextWaStep(val) {
     waStep = 6;
     const [dPart, hPart] = waDraft.slot.split('·').map(s => s.trim());
 
-    records.unshift({
+    const waEntry = {
       id: Date.now(),
       date: dPart || availDays[0].label,
       hour: hPart || '10:00 a. m.',
@@ -1358,8 +1400,11 @@ function nextWaStep(val) {
       docs: waDraft.docs,
       summary: waDraft.summary,
       channel: 'WhatsApp'
-    });
+    };
+    records.unshift(waEntry);
     saveRecords();
+    publishCloudConsultation(waEntry);
+    trackLiveEvent('Nueva consulta agendada (Chat WhatsApp)', `${val} · ${waDraft.area} · ${waDraft.slot}`);
     renderInternalTable();
 
     const waReal = `https://wa.me/573206649564?text=` + encodeURIComponent(
@@ -1399,6 +1444,7 @@ function enterInternalPanel() {
   document.body.classList.add('internal-open');
   window.scrollTo(0, 0);
   renderInternalTable();
+  fetchCloudData();
 }
 function exitInternalPanel() {
   document.body.classList.remove('internal-open');
@@ -1455,10 +1501,134 @@ function renderInternalTable() {
   }).join('');
 }
 
+// ============================================================================
+// RASTREADOR EN TIEMPO REAL DE VISITAS Y SINCRONIZACION NUBE (ntfy.sh)
+// ============================================================================
+const NTFY_VISITS_TOPIC = 'azahinu_visitas_demos_2026';
+const NTFY_SYNC_TOPIC = 'azahinu_sync_abogados_2026';
+const IGNORE_SELF_KEY = 'sr_ignore_own_visits';
+
+function getDeviceDescription() {
+  const ua = navigator.userAgent || '';
+  let os = 'Computador';
+  if (/iPhone|iPad|iPod/i.test(ua)) os = 'iPhone / iPad';
+  else if (/Android/i.test(ua)) os = 'Celular Android';
+  else if (/Windows/i.test(ua)) os = 'PC Windows';
+  else if (/Macintosh|Mac OS/i.test(ua)) os = 'Mac';
+  return `${os} (${window.innerWidth}x${window.innerHeight})`;
+}
+
+function updateIgnoreButtonUI() {
+  const btn = document.getElementById('ignoreSelfBtn');
+  if (!btn) return;
+  const ignored = localStorage.getItem(IGNORE_SELF_KEY) === '1';
+  btn.textContent = ignored ? '✓ Mis visitas están excluidas en este PC' : 'Excluir mis visitas en este PC';
+}
+
+function toggleIgnoreOwnVisits() {
+  const cur = localStorage.getItem(IGNORE_SELF_KEY) === '1';
+  localStorage.setItem(IGNORE_SELF_KEY, cur ? '0' : '1');
+  updateIgnoreButtonUI();
+}
+
+function trackLiveEvent(action, detail) {
+  if (localStorage.getItem(IGNORE_SELF_KEY) === '1' && action === 'Abrió la página de Abogados') {
+    return;
+  }
+  const payload = {
+    site: 'Abogados',
+    action,
+    device: getDeviceDescription(),
+    detail: detail || window.location.href,
+    time: new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+  };
+  fetch(`https://ntfy.sh/${NTFY_VISITS_TOPIC}`, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Title': `Abogados: ${action}`,
+      'Tags': 'scales'
+    }
+  }).catch(() => {});
+}
+
+function publishCloudConsultation(entry) {
+  fetch(`https://ntfy.sh/${NTFY_SYNC_TOPIC}`, {
+    method: 'POST',
+    body: JSON.stringify(entry)
+  }).catch(() => {});
+}
+
+async function fetchCloudData() {
+  updateIgnoreButtonUI();
+  // 1. Cargar consultas enviadas desde otros celulares o computadores
+  try {
+    const resSync = await fetch(`https://ntfy.sh/${NTFY_SYNC_TOPIC}/json?poll=1`);
+    const textSync = await resSync.text();
+    const lines = textSync.trim().split('\n').filter(Boolean);
+    let added = false;
+    lines.forEach(line => {
+      try {
+        const msg = JSON.parse(line);
+        if (msg.event === 'message' && msg.message) {
+          const entry = JSON.parse(msg.message);
+          if (entry && entry.id && !records.some(r => r.id === entry.id)) {
+            records.unshift(entry);
+            added = true;
+          }
+        }
+      } catch (e) {}
+    });
+    if (added) {
+      saveRecords();
+      renderInternalTable();
+    }
+  } catch (e) {}
+
+  // 2. Cargar registro de visitas al enlace
+  const tbody = document.getElementById('visitsLogTableBody');
+  if (!tbody) return;
+  try {
+    const resVis = await fetch(`https://ntfy.sh/${NTFY_VISITS_TOPIC}/json?poll=1`);
+    const textVis = await resVis.text();
+    const lines = textVis.trim().split('\n').filter(Boolean);
+    const events = [];
+    lines.forEach(line => {
+      try {
+        const msg = JSON.parse(line);
+        if (msg.event === 'message' && msg.message) {
+          const parsed = JSON.parse(msg.message);
+          if (parsed && parsed.action) {
+            events.unshift(parsed);
+          }
+        }
+      } catch (e) {}
+    });
+
+    if (events.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="4" style="color:var(--muted)">Aún no hay visitas registradas.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = events.slice(0, 30).map(ev => `
+      <tr>
+        <td><strong>${escapeHTML(ev.time || '')}</strong></td>
+        <td><span class="tag-doc tag-yes">${escapeHTML(ev.site || 'Web')} · ${escapeHTML(ev.action)}</span></td>
+        <td>${escapeHTML(ev.device || '')}</td>
+        <td>${escapeHTML(ev.detail || '')}</td>
+      </tr>
+    `).join('');
+  } catch (e) {
+    tbody.innerHTML = `<tr><td colspan="4" style="color:var(--muted)">No se pudo conectar al servidor de visitas.</td></tr>`;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   lucide.createIcons();
   initDateAndTimePickers();
   renderInternalTable();
+  updateIgnoreButtonUI();
+  trackLiveEvent('Abrió la página de Abogados', document.referrer ? `Desde: ${document.referrer}` : 'Entrada directa al link');
 });
 </script>
 </body>

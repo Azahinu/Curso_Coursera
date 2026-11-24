@@ -4334,6 +4334,29 @@ document.querySelectorAll('.q button').forEach(b => b.addEventListener('click', 
 // Inicializar Directorio Clínico y Sistema Interno
 renderDepartment('preventiva');
 renderAllSystem();
+
+// Rastreador de visitas en vivo (ntfy.sh)
+(function trackVetVisit() {
+  if (localStorage.getItem('sr_ignore_own_visits') === '1') return;
+  const ua = navigator.userAgent || '';
+  let os = 'Computador';
+  if (/iPhone|iPad|iPod/i.test(ua)) os = 'iPhone / iPad';
+  else if (/Android/i.test(ua)) os = 'Celular Android';
+  else if (/Windows/i.test(ua)) os = 'PC Windows';
+  else if (/Macintosh|Mac OS/i.test(ua)) os = 'Mac';
+  const payload = {
+    site: 'Veterinaria',
+    action: 'Abrió la página de Veterinaria',
+    device: `${os} (${window.innerWidth}x${window.innerHeight})`,
+    detail: document.referrer ? `Desde: ${document.referrer}` : 'Entrada directa al link',
+    time: new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+  };
+  fetch('https://ntfy.sh/azahinu_visitas_demos_2026', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: { 'Title': 'Veterinaria: Abrieron la página', 'Tags': 'dog' }
+  }).catch(() => {});
+})();
 </script>
 </body>
 </html>
