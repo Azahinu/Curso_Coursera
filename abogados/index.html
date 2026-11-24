@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salazar & Ríos — Abogados en Armenia, Quindío</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+:root {
+  --bg: #FAF9F5;
+  --surface: #FFFFFF;
+  --stone: #F2EFE9;
+  --ink: #16181D;
+  --ink-soft: #383C45;
+  --muted: #6C7078;
+  --line: #E3DFD7;
+  --accent: #1E3229;      /* Verde pino muy oscuro y sobrio, clásico de estudio jurídico */
+  --accent-hover: #14221C;
+  --wa: #128C7E;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: none; }
+
+.wrap {
+  width: min(1140px, 90vw);
+  margin: 0 auto;
+}
+
+/* MODO PANEL INTERNO */
+#internalApp { display: none; }
+body.internal-open #publicPage,
+body.internal-open #waWidgetRoot { display: none !important; }
+body.internal-open #internalApp { display: block; }
+
+/* ==========================================================================
+   HEADER SIMPLE, HUMANO Y SOBRIO
+   ========================================================================== */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background-color: var(--bg);
+}
+.header-inner {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.firm-name {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.firm-name span {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid var(--line);
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+.main-nav a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header-phone {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.btn-solid {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 11px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.18s;
+}
+.btn-solid:hover {
+  background-color: var(--accent-hover);
+}
+.btn-ghost {
+  border: 1px solid var(--line);
+  background-color: var(--surface);
+  color: var(--ink);
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: border-color 0.18s;
+}
+.btn-ghost:hover {
+  border-color: var(--ink);
+}
+
+/* ==========================================================================
+   PORTADA EDITORIAL (SIN ETIQUETAS DE IA, SIN TARJETAS FLOTANTES, SIN STATS FALSOS)
+   ========================================================================== */
+.intro-section {
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+.intro-top {
+  max-width: 780px;
+  margin-bottom: 48px;
+}
+.intro-top h1 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 54px);
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+.intro-top p {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.intro-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.intro-visual-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.55fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.intro-photo {
+  aspect-ratio: 16 / 9;
+  background-color: var(--stone);
+  overflow: hidden;
+}
+.intro-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.intro-office-card {
+  background-color: var(--stone);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.intro-office-card h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.intro-office-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.office-detail-list {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   AREAS DE PRACTICA (LAYOUT EDITORIAL ASIMETRICO: TITULO A LA IZQUIERDA, LISTA A LA DERECHA)
+   ========================================================================== */
+.practice-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+}
+.editorial-split {
+  display: grid;
+  grid-template-columns: 0.35fr 0.65fr;
+  gap: 48px;
+  align-items: start;
+}
+.split-left h2 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+.split-left p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.practice-list {
+  border-top: 1px solid var(--ink);
+}
+.practice-item {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+.practice-item h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.practice-item p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  max-width: 58ch;
+  margin-bottom: 12px;
+}
+.practice-docs {
+  font-size: 13px;
+  color: var(--muted);
+}
+.practice-docs strong {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.practice-link {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  padding-top: 4px;
+}
+.practice-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   EL ESTUDIO Y LOS ABOGADOS
+   ========================================================================== */
+.lawyers-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--surface);
+}
+.lawyers-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.lawyer-entry {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.lawyer-entry:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.lawyer-portrait {
+  aspect-ratio: 4 / 4.6;
+  background-color: var(--stone);
+  overflow: hidden;
+}
+.lawyer-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.lawyer-bio h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.lawyer-credentials {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.lawyer-bio p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   FORMULARIO DE CONSULTA Y AGENDAMIENTO DE CITA (SOBRIO, REAL Y DIRECTO)
+   ========================================================================== */
+.booking-section {
+  padding: 84px 0;
+  border-bottom: 1px solid var(--line);
+}
+.booking-sheet {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  padding: 44px 48px;
+}
+.sheet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+}
+.sheet-group-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.field {
+  margin-bottom: 18px;
+}
+.field label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #C8C4BC;
+  border-radius: 3px;
+  background-color: var(--bg);
+  font-size: 14.5px;
+  color: var(--ink);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+  background-color: var(--surface);
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Selector limpio de día y hora */
+.days-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.day-btn {
+  border: 1px solid #C8C4BC;
+  background-color: var(--bg);
+  padding: 10px 6px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 13px;
+}
+.day-btn:hover { border-color: var(--ink); }
+.day-btn.active {
+  background-color: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.day-btn strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hours-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.hour-btn {
+  border: 1px solid #C8C4BC;
+  background-color: var(--bg);
+  padding: 9px 10px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.hour-btn:hover { border-color: var(--ink); }
+.hour-btn.active {
+  background-color: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.booking-confirm-box {
+  display: none;
+  margin-top: 20px;
+  padding: 20px 22px;
+  background-color: var(--stone);
+  border-left: 3px solid var(--accent);
+}
+.booking-confirm-box.show { display: block; }
+
+/* FOOTER */
+.site-footer {
+  padding: 56px 0 40px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+.footer-bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   WIDGET DE WHATSAPP EN LA ESQUINA INFERIOR (COMO EN UN SITIO WEB REAL)
+   ========================================================================== */
+.wa-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  background-color: var(--wa);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.wa-launcher:hover { background-color: #0e7266; }
+
+.wa-popup {
+  position: fixed;
+  right: 24px;
+  bottom: 80px;
+  z-index: 65;
+  width: min(370px, calc(100vw - 32px));
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+}
+.wa-popup.open { display: flex; }
+.wa-popup-head {
+  background-color: #075E54;
+  color: #fff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wa-popup-body {
+  background-color: #ECE5DD;
+  height: 310px;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.w-msg {
+  max-width: 85%;
+  padding: 10px 13px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.w-msg.bot {
+  background-color: #fff;
+  align-self: flex-start;
+}
+.w-msg.user {
+  background-color: #DCF8C6;
+  align-self: flex-end;
+}
+.wa-popup-opts {
+  background-color: #F4F4F4;
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid #ddd;
+}
+.wa-popup-opts button {
+  background-color: #fff;
+  border: 1px solid var(--wa);
+  color: #075E54;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.wa-popup-opts button:hover {
+  background-color: #075E54;
+  color: #fff;
+}
+.wa-popup-input {
+  display: flex;
+  padding: 10px 12px;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  gap: 8px;
+}
+.wa-popup-input input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-size: 13px;
+}
+.wa-popup-input button {
+  background-color: #075E54;
+  color: #fff;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   MODAL LOGIN Y PANEL INTERNO DE CONSULTAS Y AGENDA (SOBRIO, TIPO TABLA REAL)
+   ========================================================================== */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background-color: rgba(22, 24, 29, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-bg.open { display: flex; }
+.modal-card {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  width: min(400px, 100%);
+  padding: 28px;
+  border-radius: 6px;
+}
+
+.internal-header {
+  background-color: var(--ink);
+  color: #fff;
+  padding: 16px 0;
+}
+.internal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 13.5px;
+}
+.internal-table th {
+  text-align: left;
+  padding: 13px 16px;
+  background-color: var(--stone);
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+  color: var(--ink);
+}
+.internal-table td {
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.tag-doc {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+.tag-yes { background-color: #E3F2EA; color: #165B38; }
+.tag-no { background-color: #F7E8D8; color: #8A4A14; }
+
+@media (max-width: 900px) {
+  .main-nav, .header-phone { display: none; }
+  .intro-visual-grid, .editorial-split, .sheet-grid, .lawyer-entry {
+    grid-template-columns: 1fr;
+  }
+  .booking-sheet { padding: 28px 22px; }
+}
+</style>
+</head>
+<body>
+
+<div id="publicPage">
+
+  <!-- Header Sobrio -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#inicio" class="firm-name">
+        Salazar &amp; Ríos
+        <span>Abogados · Armenia</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#areas">Áreas de práctica</a>
+        <a href="#estudio">El Estudio</a>
+        <a href="#consulta">Agendar consulta</a>
+      </nav>
+
+      <div class="header-right">
+        <span class="header-phone">(606) 744 1920 · Cra. 14 # 18-40</span>
+        <a href="#consulta" class="btn-solid">Solicitar cita</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Portada Editorial -->
+  <section class="intro-section" id="inicio">
+    <div class="wrap">
+      <div class="intro-top">
+        <h1>Asesoría y representación judicial en derecho laboral, pensiones, civil y familia.</h1>
+        <p>
+          Somos una firma de abogados litigantes en Armenia, Quindío. Antes de programar una reunión, revisamos los antecedentes y documentos de su caso para indicarle con claridad qué opciones legales tiene.
+        </p>
+        <div class="intro-actions">
+          <a href="#consulta" class="btn-solid">Agendar una consulta</a>
+          <button type="button" onclick="toggleWaPopup(true)" class="btn-ghost">Consultar por WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="intro-visual-grid">
+        <div class="intro-photo">
+          <img src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Oficina Salazar & Ríos Abogados">
+        </div>
+        <div class="intro-office-card">
+          <div>
+            <h3>Atención en oficina y por videollamada</h3>
+            <p>
+              Atendemos procesos ante los Juzgados del Circuito de Armenia, el Tribunal Superior del Quindío, Colpensiones y aseguradoras a nivel nacional.
+            </p>
+          </div>
+          <div class="office-detail-list">
+            <div><strong>Dirección:</strong> Cra. 14 # 18-40, Oficina 502, Edificio Centro Ejecutivo, Armenia.</div>
+            <div><strong>Horario:</strong> Lunes a viernes, 8:00 a. m. a 6:00 p. m.</div>
+            <div><strong>WhatsApp:</strong> +57 320 664 9564</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas de Práctica (2 Columnas Editoriales) -->
+  <section class="practice-section" id="areas">
+    <div class="wrap editorial-split">
+      <div class="split-left">
+        <h2>Áreas de práctica</h2>
+        <p>
+          Nos enfocamos en cuatro materias donde contamos con experiencia probada en litigio y conciliación.
+        </p>
+      </div>
+
+      <div class="practice-list">
+        <div class="practice-item">
+          <div>
+            <h3>Derecho laboral</h3>
+            <p>Despidos sin justa causa, reclamación de liquidaciones e indemnizaciones, declaratoria de contrato realidad en contratos por prestación de servicios y estabilidad laboral reforzada.</p>
+            <div class="practice-docs"><strong>Documentos útiles para la cita:</strong> Contrato, extractos de pago de nómina o carta de terminación.</div>
+          </div>
+          <a href="#consulta" onclick="selectPracticeInForm('Derecho laboral')" class="practice-link">Agendar en esta área →</a>
+        </div>
+
+        <div class="practice-item">
+          <div>
+            <h3>Pensiones (Colpensiones y fondos privados)</h3>
+            <p>Demandas de ineficacia de traslado de régimen pensional, reconocimiento de pensión de vejez, invalidez o sobrevivientes y reliquidación de semanas cotizadas.</p>
+            <div class="practice-docs"><strong>Documentos útiles para la cita:</strong> Historia laboral actualizada en PDF y respuesta del fondo.</div>
+          </div>
+          <a href="#consulta" onclick="selectPracticeInForm('Pensiones')" class="practice-link">Agendar en esta área →</a>
+        </div>
+
+        <div class="practice-item">
+          <div>
+            <h3>Responsabilidad civil, seguros y tránsito</h3>
+            <p>Reclamación de indemnizaciones por accidentes de tránsito con lesiones o fallecimiento, cobro de pólizas de seguro de vida deudor y responsabilidad contractual.</p>
+            <div class="practice-docs"><strong>Documentos útiles para la cita:</strong> Croquis del accidente (IPAT), historia clínica o copia de la póliza.</div>
+          </div>
+          <a href="#consulta" onclick="selectPracticeInForm('Responsabilidad civil y seguros')" class="practice-link">Agendar en esta área →</a>
+        </div>
+
+        <div class="practice-item">
+          <div>
+            <h3>Derecho de familia y sucesiones</h3>
+            <p>Trámites de sucesión por notaría o juzgado, divorcios, liquidación de sociedad conyugal o patrimonial y declaración de unión marital de hecho.</p>
+            <div class="practice-docs"><strong>Documentos útiles para la cita:</strong> Relación de bienes inmuebles y registros civiles correspondientes.</div>
+          </div>
+          <a href="#consulta" onclick="selectPracticeInForm('Familia y sucesiones')" class="practice-link">Agendar en esta área →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- El Estudio y Socios -->
+  <section class="lawyers-section" id="estudio">
+    <div class="wrap editorial-split">
+      <div class="split-left">
+        <h2>Abogados</h2>
+        <p>
+          Cada caso es llevado directamente por los abogados socios de la firma, sin intermediarios.
+        </p>
+      </div>
+
+      <div class="lawyers-rows">
+        <div class="lawyer-entry">
+          <div class="lawyer-portrait">
+            <img src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hernán Salazar">
+          </div>
+          <div class="lawyer-bio">
+            <h3>Hernán Salazar</h3>
+            <div class="lawyer-credentials">Socio · Derecho Laboral y Seguridad Social · T.P. 148.920 del C.S. de la J.</div>
+            <p>Abogado con más de quince años de ejercicio en litigio laboral y pensional ante los juzgados del Quindío. Asesora tanto a trabajadores en reclamación de derechos como a empresas de la región en contratación y procesos disciplinarios.</p>
+          </div>
+        </div>
+
+        <div class="lawyer-entry">
+          <div class="lawyer-portrait">
+            <img src="https://images.pexels.com/photos/38581713/pexels-photo-38581713.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carolina Ríos">
+          </div>
+          <div class="lawyer-bio">
+            <h3>Carolina Ríos</h3>
+            <div class="lawyer-credentials">Socia · Derecho Civil, Seguros y Familia · T.P. 192.405 del C.S. de la J.</div>
+            <p>Especialista en responsabilidad civil, reclamaciones frente a aseguradoras y derecho de familia. Dirige los trámites sucesorales notariales y judiciales, así como procesos indemnizatorios por accidentes y pólizas.</p>
+          </div>
+        </div>
+
+        <div class="lawyer-entry">
+          <div class="lawyer-portrait">
+            <img src="https://images.pexels.com/photos/12437056/pexels-photo-12437056.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Felipe Mejía">
+          </div>
+          <div class="lawyer-bio">
+            <h3>Felipe Mejía</h3>
+            <div class="lawyer-credentials">Asociado · Litigio Penal y Tránsito · T.P. 215.318 del C.S. de la J.</div>
+            <p>Litigante en procesos penales, audiencias preliminares, representación de víctimas e incidentes de reparación integral derivados de accidentes viales y delitos contra el patrimonio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Consulta y Agendamiento -->
+  <section class="booking-section" id="consulta">
+    <div class="wrap">
+      <div style="max-width:620px;margin-bottom:32px">
+        <h2 style="font-family:'Newsreader',Georgia,serif;font-size:34px;font-weight:400;margin-bottom:10px">Agendar una consulta</h2>
+        <p style="font-size:15.5px;color:var(--ink-soft)">
+          Cuéntenos brevemente su situación y elija el día y la hora para su cita. Esto nos permite revisar los datos de su caso antes de conversar.
+        </p>
+      </div>
+
+      <form class="booking-sheet" onsubmit="handleConsultationSubmit(event)">
+        <div class="sheet-grid">
+
+          <!-- Columna 1: Datos del Caso -->
+          <div>
+            <div class="sheet-group-title">1. Información sobre su caso</div>
+
+            <div class="field-row">
+              <div class="field">
+                <label>Tema de la consulta</label>
+                <select id="fArea">
+                  <option value="Derecho laboral">Derecho laboral</option>
+                  <option value="Pensiones">Pensiones</option>
+                  <option value="Responsabilidad civil y seguros">Responsabilidad civil y seguros</option>
+                  <option value="Familia y sucesiones">Familia y sucesiones</option>
+                  <option value="Derecho penal">Derecho penal</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>¿Cuenta con documentos del caso?</label>
+                <select id="fDocs">
+                  <option value="Sí, tengo documentos">Sí, tengo documentos o soportes</option>
+                  <option value="Tengo documentos parciales">Tengo algunos soportes / mensajes</option>
+                  <option value="No tengo documentos aún">No tengo documentos todavía</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>¿Qué ocurrió y hace cuánto tiempo?</label>
+              <textarea id="fSummary" rows="4" placeholder="Describa de forma breve los hechos principales de su caso..." required></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field" style="margin-bottom:0">
+                <label>Nombre completo</label>
+                <input id="fName" type="text" placeholder="Su nombre y apellido" required>
+              </div>
+              <div class="field" style="margin-bottom:0">
+                <label>Teléfono / WhatsApp</label>
+                <input id="fPhone" type="tel" placeholder="Ej: 310 452 1980" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2: Fecha y Hora de la Cita -->
+          <div style="display:flex;flex-direction:column;justify-content:space-between">
+            <div>
+              <div class="sheet-group-title">2. Fecha y hora para la reunión</div>
+
+              <div class="field">
+                <label>Modalidad</label>
+                <select id="fModality">
+                  <option value="Presencial en oficina (Cra. 14 # 18-40, Armenia)">Presencial en nuestra oficina (Armenia)</option>
+                  <option value="Videollamada (Google Meet / WhatsApp)">Por videollamada</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Día disponible</label>
+                <div class="days-row" id="daysContainer"></div>
+              </div>
+
+              <div class="field">
+                <label>Hora disponible</label>
+                <div class="hours-row" id="hoursContainer"></div>
+              </div>
+            </div>
+
+            <div>
+              <button type="submit" class="btn-solid" style="width:100%;padding:14px;font-size:15px">
+                Enviar datos del caso y agendar cita
+              </button>
+
+              <div id="confirmBox" class="booking-confirm-box">
+                <strong style="display:block;font-size:15px;margin-bottom:4px" id="confirmHeading">Consulta registrada</strong>
+                <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:12px" id="confirmDetails"></p>
+                <a id="confirmWaHref" href="#" target="_blank" rel="noopener" class="btn-solid" style="display:inline-block;background:var(--wa);padding:8px 14px;font-size:13px">
+                  Confirmar también por WhatsApp →
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <strong style="font-family:'Newsreader',Georgia,serif;font-size:20px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px">
+            Salazar &amp; Ríos Abogados
+          </strong>
+          <p>Cra. 14 # 18-40, Oficina 502 · Edificio Centro Ejecutivo · Armenia, Quindío</p>
+          <p>Teléfono: (606) 744 1920 · WhatsApp: +57 320 664 9564 · contacto@salazarrios.co</p>
+        </div>
+        <div style="text-align:right">
+          <button type="button" onclick="openLoginModal()" style="font-size:13px;color:var(--muted);text-decoration:underline">
+            Acceso interno despacho
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Salazar &amp; Ríos Abogados. Todos los derechos reservados.</span>
+        <span>La información enviada está protegida por reserva profesional (Ley 1123 de 2007).</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /#publicPage -->
+
+
+<!-- ==========================================================================
+     WIDGET DE WHATSAPP EN LA ESQUINA INFERIOR DERECHA
+     ========================================================================== -->
+<div id="waWidgetRoot">
+  <div class="wa-popup" id="waPopup">
+    <div class="wa-popup-head">
+      <div>
+        <strong style="display:block;font-size:14px">Salazar &amp; Ríos Abogados</strong>
+        <span style="font-size:11.5px;opacity:0.85">Recepción de consultas y citas</span>
+      </div>
+      <button type="button" onclick="toggleWaPopup(false)" style="color:#fff;font-size:18px;padding:0 4px">✕</button>
+    </div>
+
+    <div class="wa-popup-body" id="waPopupBody"></div>
+    <div class="wa-popup-opts" id="waPopupOpts"></div>
+
+    <div class="wa-popup-input">
+      <input id="waPopupInput" type="text" placeholder="Escriba su respuesta...">
+      <button type="button" onclick="sendWaPopupText()">Enviar</button>
+    </div>
+  </div>
+
+  <button type="button" class="wa-launcher" onclick="toggleWaPopup()">
+    <i data-lucide="message-circle" style="width:19px;height:19px"></i>
+    <span>WhatsApp · Consultar mi caso</span>
+  </button>
+</div>
+
+
+<!-- ==========================================================================
+     MODAL DE ACCESO INTERNO PARA EL ABOGADO
+     ========================================================================== -->
+<div class="modal-bg" id="loginModal">
+  <div class="modal-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <strong style="font-size:17px">Acceso interno · Salazar &amp; Ríos</strong>
+      <button type="button" onclick="closeLoginModal()" style="font-size:18px">✕</button>
+    </div>
+
+    <div style="background:var(--stone);padding:12px 14px;border-radius:4px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;font-size:13px">
+      <span>Acceso demo: <b>socio</b> / <b>1234</b></span>
+      <button type="button" onclick="enterInternalPanel()" class="btn-solid" style="padding:6px 12px;font-size:12.5px">Entrar directo</button>
+    </div>
+
+    <form onsubmit="handleLoginSubmit(event)">
+      <div class="field">
+        <label>Usuario</label>
+        <input id="uInput" type="text" value="socio" required>
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <input id="pInput" type="password" value="1234" required>
+      </div>
+      <button type="submit" class="btn-solid" style="width:100%">Ingresar</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- ==========================================================================
+     PANEL INTERNO DEL DESPACHO (AGENDA Y CASOS RECIBIDOS)
+     ========================================================================== -->
+<div id="internalApp">
+  <div class="internal-header">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div>
+        <strong style="font-size:16px">Salazar &amp; Ríos · Agenda y Consultas Recibidas</strong>
+        <span style="font-size:12.5px;color:#cbd5e1;margin-left:10px">Casos registrados desde el formulario y WhatsApp</span>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button type="button" onclick="resetRecords()" class="btn-ghost" style="padding:7px 13px;font-size:12.5px">Restaurar ejemplos</button>
+        <button type="button" onclick="exitInternalPanel()" class="btn-solid" style="background:#334155;padding:7px 14px;font-size:12.5px">← Volver a la página</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding:36px 0 64px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px;flex-wrap:wrap;gap:12px">
+      <div>
+        <h2 style="font-family:'Newsreader',Georgia,serif;font-size:28px;font-weight:400">Consultas y citas agendadas</h2>
+        <p style="font-size:14px;color:var(--muted)">Aquí ve los datos del caso y si el cliente cuenta con documentos antes de atender la cita.</p>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button type="button" id="filterAllBtn" onclick="filterInternal('ALL')" class="btn-solid" style="padding:7px 14px;font-size:13px">Todos</button>
+        <button type="button" id="filterDocsBtn" onclick="filterInternal('DOCS')" class="btn-ghost" style="padding:7px 14px;font-size:13px">Con documentos</button>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="internal-table">
+        <thead>
+          <tr>
+            <th>Cita agendada</th>
+            <th>Cliente y WhatsApp</th>
+            <th>Área</th>
+            <th>¿Tiene documentos?</th>
+            <th>Resumen del caso</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="internalTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================================
+// FECHAS Y DATOS DE EJEMPLO
+// ============================================================================
+const DIAS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+
+function getNextBusinessDays(n) {
+  const arr = [];
+  let add = 1;
+  while (arr.length < n) {
+    const d = new Date();
+    d.setDate(d.getDate() + add);
+    if (d.getDay() !== 0) {
+      arr.push({
+        dayName: DIAS[d.getDay()],
+        dayNum: d.getDate(),
+        month: MESES[d.getMonth()],
+        label: `${DIAS[d.getDay()]} ${d.getDate()} ${MESES[d.getMonth()]}`
+      });
+    }
+    add++;
+  }
+  return arr;
+}
+
+const availDays = getNextBusinessDays(5);
+const availHours = ['08:30 a. m.', '10:00 a. m.', '11:30 a. m.', '02:30 p. m.', '04:00 p. m.', '05:00 p. m.'];
+
+let selectedDay = availDays[0].label;
+let selectedHour = availHours[1];
+let currentFilter = 'ALL';
+
+const STORAGE_KEY = 'sr_abogados_clean_v1';
+
+function getInitialRecords() {
+  return [
+    {
+      id: 1,
+      date: availDays[0].label,
+      hour: '10:00 a. m.',
+      modality: 'Presencial en oficina',
+      name: 'Jorge Mario Ramírez',
+      phone: '312 480 9910',
+      area: 'Derecho laboral',
+      docs: 'Sí, tengo documentos',
+      summary: 'Trabajé 5 años con contratos sucesivos cumpliendo horario fijo. Me terminaron el contrato hace 10 días sin pagarme liquidación. Tengo contratos y extractos.',
+      channel: 'Formulario web'
+    },
+    {
+      id: 2,
+      date: availDays[0].label,
+      hour: '02:30 p. m.',
+      modality: 'Presencial en oficina',
+      name: 'María Elena Cardona',
+      phone: '315 712 3304',
+      area: 'Pensiones',
+      docs: 'Sí, tengo documentos',
+      summary: 'Tengo 1.340 semanas cotizadas y solicito demanda de ineficacia de traslado a fondo privado. Cuento con historia laboral en PDF.',
+      channel: 'WhatsApp'
+    },
+    {
+      id: 3,
+      date: availDays[1].label,
+      hour: '11:30 a. m.',
+      modality: 'Por videollamada',
+      name: 'Andrés Felipe Ortiz',
+      phone: '301 654 8821',
+      area: 'Responsabilidad civil y seguros',
+      docs: 'Sí, tengo documentos',
+      summary: 'Accidente de tránsito en la vía El Edén con fractura e incapacidad de 60 días. Tengo croquis policial, historia clínica y datos de la póliza.',
+      channel: 'WhatsApp'
+    },
+    {
+      id: 4,
+      date: availDays[2].label,
+      hour: '04:00 p. m.',
+      modality: 'Por videollamada',
+      name: 'Pedro Nel Quintero',
+      phone: '318 210 4490',
+      area: 'Responsabilidad civil y seguros',
+      docs: 'No tengo documentos aún',
+      summary: 'Presté un dinero en efectivo hace 7 años sin letra de cambio ni recibo firmado y quiero consultar si se puede cobrar.',
+      channel: 'Formulario web'
+    }
+  ];
+}
+
+let records = loadRecords();
+
+function loadRecords() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) return parsed;
+    }
+  } catch (e) {}
+  return getInitialRecords();
+}
+
+function saveRecords() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+  } catch (e) {}
+}
+
+function resetRecords() {
+  records = getInitialRecords();
+  saveRecords();
+  renderInternalTable();
+}
+
+function escapeHTML(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+// ============================================================================
+// FORMULARIO DE CONSULTA Y CITA
+// ============================================================================
+function initDateAndTimePickers() {
+  const dBox = document.getElementById('daysContainer');
+  dBox.innerHTML = '';
+  availDays.forEach((d, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'day-btn' + (i === 0 ? ' active' : '');
+    b.innerHTML = `<span>${d.dayName}</span><strong>${d.dayNum}</strong><span>${d.month}</span>`;
+    b.onclick = () => {
+      dBox.querySelectorAll('.day-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      selectedDay = d.label;
+    };
+    dBox.appendChild(b);
+  });
+
+  const hBox = document.getElementById('hoursContainer');
+  hBox.innerHTML = '';
+  availHours.forEach((h, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'hour-btn' + (i === 1 ? ' active' : '');
+    b.textContent = h;
+    b.onclick = () => {
+      hBox.querySelectorAll('.hour-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      selectedHour = h;
+    };
+    hBox.appendChild(b);
+  });
+}
+
+function selectPracticeInForm(area) {
+  document.getElementById('fArea').value = area;
+}
+
+function handleConsultationSubmit(e) {
+  e.preventDefault();
+  const area = document.getElementById('fArea').value;
+  const docs = document.getElementById('fDocs').value;
+  const summary = document.getElementById('fSummary').value.trim();
+  const name = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const modality = document.getElementById('fModality').value;
+
+  const entry = {
+    id: Date.now(),
+    date: selectedDay,
+    hour: selectedHour,
+    modality,
+    name,
+    phone,
+    area,
+    docs,
+    summary,
+    channel: 'Formulario web'
+  };
+
+  records.unshift(entry);
+  saveRecords();
+  renderInternalTable();
+
+  document.getElementById('confirmHeading').textContent = `Cita reservada para el ${selectedDay} a las ${selectedHour}`;
+  document.getElementById('confirmDetails').textContent =
+    `Hemos recibido el resumen de su caso de ${area.toLowerCase()}. Un abogado de la firma revisará su solicitud antes de la reunión.`;
+
+  const waMsg = encodeURIComponent(
+    `Hola Salazar & Ríos Abogados, acabo de agendar una consulta en su página web:\n\n` +
+    `• Nombre: ${name} (${phone})\n` +
+    `• Tema: ${area}\n` +
+    `• Documentos: ${docs}\n` +
+    `• Caso: ${summary}\n` +
+    `• Cita: ${selectedDay} a las ${selectedHour} (${modality})`
+  );
+  document.getElementById('confirmWaHref').href = `https://wa.me/573206649564?text=${waMsg}`;
+  document.getElementById('confirmBox').classList.add('show');
+}
+
+// ============================================================================
+// WIDGET DE WHATSAPP (TOMA DATOS DEL CASO Y AGENDA LA CITA)
+// ============================================================================
+let waStep = 0;
+let waDraft = { area: '', docs: '', summary: '', slot: '', contact: '' };
+
+function toggleWaPopup(forceOpen) {
+  const pop = document.getElementById('waPopup');
+  const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !pop.classList.contains('open');
+  pop.classList.toggle('open', shouldOpen);
+  if (shouldOpen && document.getElementById('waPopupBody').children.length === 0) {
+    startWaPopupFlow();
+  }
+}
+
+function addWaMsg(html, sender) {
+  const body = document.getElementById('waPopupBody');
+  const div = document.createElement('div');
+  div.className = 'w-msg ' + sender;
+  div.innerHTML = html;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function setWaOpts(list) {
+  const box = document.getElementById('waPopupOpts');
+  box.innerHTML = '';
+  list.forEach(item => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = item;
+    b.onclick = () => {
+      box.innerHTML = '';
+      addWaMsg(escapeHTML(item), 'user');
+      nextWaStep(item);
+    };
+    box.appendChild(b);
+  });
+}
+
+function startWaPopupFlow() {
+  waStep = 1;
+  document.getElementById('waPopupBody').innerHTML = '';
+  addWaMsg('Hola, bienvenido a <b>Salazar &amp; Ríos Abogados</b>.<br><br>Para agendar su cita con el abogado encargado, indíquenos primero sobre qué tema es su consulta:', 'bot');
+  setWaOpts(['Derecho laboral', 'Pensiones', 'Civil / Seguros', 'Familia / Sucesión', 'Derecho penal']);
+}
+
+function sendWaPopupText() {
+  const inp = document.getElementById('waPopupInput');
+  const v = inp.value.trim();
+  if (!v) return;
+  inp.value = '';
+  document.getElementById('waPopupOpts').innerHTML = '';
+  addWaMsg(escapeHTML(v), 'user');
+  nextWaStep(v);
+}
+
+document.getElementById('waPopupInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') sendWaPopupText();
+});
+
+function nextWaStep(val) {
+  if (waStep === 1) {
+    waDraft.area = val;
+    waStep = 2;
+    setTimeout(() => {
+      addWaMsg('¿Cuenta actualmente con documentos o soportes del caso (por ejemplo contrato, historia laboral, croquis o escrituras)?', 'bot');
+      setWaOpts(['Sí, tengo documentos', 'Tengo soportes parciales', 'No tengo documentos aún']);
+    }, 300);
+
+  } else if (waStep === 2) {
+    waDraft.docs = val;
+    waStep = 3;
+    setTimeout(() => {
+      addWaMsg('Por favor escriba brevemente qué ocurrió y hace cuánto tiempo:', 'bot');
+      document.getElementById('waPopupInput').focus();
+    }, 300);
+
+  } else if (waStep === 3) {
+    waDraft.summary = val;
+    waStep = 4;
+    setTimeout(() => {
+      addWaMsg('¿En cuál de estos horarios prefiere agendar la consulta?', 'bot');
+      setWaOpts([
+        `${availDays[0].label} · 10:00 a. m.`,
+        `${availDays[0].label} · 04:00 p. m.`,
+        `${availDays[1].label} · 11:30 a. m.`
+      ]);
+    }, 300);
+
+  } else if (waStep === 4) {
+    waDraft.slot = val;
+    waStep = 5;
+    setTimeout(() => {
+      addWaMsg('Por último, escriba su nombre completo y número de celular para dejar reservada la cita:', 'bot');
+      document.getElementById('waPopupInput').focus();
+    }, 300);
+
+  } else if (waStep === 5) {
+    waDraft.contact = val;
+    waStep = 6;
+    const [dPart, hPart] = waDraft.slot.split('·').map(s => s.trim());
+
+    records.unshift({
+      id: Date.now(),
+      date: dPart || availDays[0].label,
+      hour: hPart || '10:00 a. m.',
+      modality: 'Agendada por WhatsApp',
+      name: val,
+      phone: val,
+      area: waDraft.area,
+      docs: waDraft.docs,
+      summary: waDraft.summary,
+      channel: 'WhatsApp'
+    });
+    saveRecords();
+    renderInternalTable();
+
+    const waReal = `https://wa.me/573206649564?text=` + encodeURIComponent(
+      `Hola Salazar & Ríos Abogados, envío los datos de mi consulta:\n` +
+      `• Nombre y contacto: ${val}\n` +
+      `• Tema: ${waDraft.area}\n` +
+      `• Documentos: ${waDraft.docs}\n` +
+      `• Caso: ${waDraft.summary}\n` +
+      `• Cita elegida: ${waDraft.slot}`
+    );
+
+    setTimeout(() => {
+      addWaMsg(
+        `Listo. Su cita para el <b>${escapeHTML(waDraft.slot)}</b> ha quedado registrada con los datos de su caso.<br><br>` +
+        `<a href="${waReal}" target="_blank" rel="noopener" style="display:inline-block;background:#075E54;color:#fff;padding:7px 12px;border-radius:4px;font-weight:600;margin-top:4px">Abrir en WhatsApp →</a>`,
+        'bot'
+      );
+    }, 300);
+  }
+}
+
+// ============================================================================
+// PANEL INTERNO DEL DESPACHO
+// ============================================================================
+function openLoginModal() {
+  document.getElementById('loginModal').classList.add('open');
+}
+function closeLoginModal() {
+  document.getElementById('loginModal').classList.remove('open');
+}
+function handleLoginSubmit(e) {
+  e.preventDefault();
+  enterInternalPanel();
+}
+function enterInternalPanel() {
+  closeLoginModal();
+  document.body.classList.add('internal-open');
+  window.scrollTo(0, 0);
+  renderInternalTable();
+}
+function exitInternalPanel() {
+  document.body.classList.remove('internal-open');
+  window.scrollTo(0, 0);
+}
+function filterInternal(mode) {
+  currentFilter = mode;
+  document.getElementById('filterAllBtn').className = mode === 'ALL' ? 'btn-solid' : 'btn-ghost';
+  document.getElementById('filterDocsBtn').className = mode === 'DOCS' ? 'btn-solid' : 'btn-ghost';
+  renderInternalTable();
+}
+
+function renderInternalTable() {
+  const tbody = document.getElementById('internalTableBody');
+  if (!tbody) return;
+
+  const list = currentFilter === 'DOCS'
+    ? records.filter(r => !r.docs.includes('No tengo'))
+    : records;
+
+  tbody.innerHTML = list.map(r => {
+    const hasDocs = !r.docs.includes('No tengo');
+    const digits = r.phone.replace(/\D/g, '');
+    const waUrl = `https://wa.me/${digits.startsWith('57') ? digits : '57' + digits}?text=` + encodeURIComponent(
+      `Hola ${r.name}, le escribimos de Salazar & Ríos Abogados respecto a su consulta de ${r.area} agendada para el ${r.date} a las ${r.hour}.`
+    );
+
+    return `
+      <tr>
+        <td>
+          <strong>${escapeHTML(r.date)}</strong><br>
+          <span>${escapeHTML(r.hour)}</span><br>
+          <small style="color:var(--muted)">${escapeHTML(r.modality)}</small>
+        </td>
+        <td>
+          <strong>${escapeHTML(r.name)}</strong><br>
+          <span style="color:var(--muted)">${escapeHTML(r.phone)}</span><br>
+          <small style="color:var(--muted)">Vía: ${escapeHTML(r.channel)}</small>
+        </td>
+        <td><strong>${escapeHTML(r.area)}</strong></td>
+        <td>
+          <span class="tag-doc ${hasDocs ? 'tag-yes' : 'tag-no'}">
+            ${escapeHTML(r.docs)}
+          </span>
+        </td>
+        <td style="max-width:340px">${escapeHTML(r.summary)}</td>
+        <td>
+          <a href="${waUrl}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:underline">
+            Escribir al cliente
+          </a>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+  initDateAndTimePickers();
+  renderInternalTable();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,4339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huellas · Clínica Veterinaria en Armenia, Quindío</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #142841;
+  --navy-dark: #0c192b;
+  --navy-light: #223f63;
+  --emerald: #0d8a72;
+  --emerald-dark: #096c59;
+  --emerald-soft: #e6f6f2;
+  --sky-soft: #f0f5fa;
+  --amber: #d97706;
+  --amber-soft: #fef3c7;
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --shadow-sm: 0 4px 14px -4px rgba(20, 40, 65, 0.07);
+  --shadow-md: 0 16px 38px -12px rgba(20, 40, 65, 0.12);
+  --shadow-lg: 0 24px 48px -16px rgba(20, 40, 65, 0.18);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, .heading {
+  font-family: 'Outfit', system-ui, sans-serif;
+  color: var(--navy);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font-family: inherit; }
+
+.container { width: min(1220px, 92vw); margin: 0 auto; }
+
+/* TOP URGENCIAS BAR */
+.topbar {
+  background: var(--navy-dark);
+  color: #cbd5e1;
+  font-size: 12.5px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.topbar-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.topbar-item svg { width: 14px; height: 14px; stroke: #38bdf8; fill: none; stroke-width: 2; }
+.urg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(220, 38, 38, 0.18);
+  border: 1px solid rgba(248, 113, 113, 0.38);
+  color: #fca5a5;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+.urg-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+/* ==========================================================================
+   HEADER ARMONIOSO (1 SOLA LINEA, PILL NAV CENTRADO, SIN SALTOS DE LINEA)
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.25s;
+}
+header.scrolled { box-shadow: var(--shadow-sm); }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  gap: 20px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  background: var(--navy);
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.brand-mark svg { width: 21px; height: 21px; fill: currentColor; }
+.brand-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.brand-title strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+.brand-title span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--emerald);
+  background: var(--emerald-soft);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface-alt);
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+.menu a {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--text);
+  padding: 7px 15px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: all 0.18s;
+}
+.menu a:hover {
+  color: var(--navy);
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(20, 40, 65, 0.06);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 11px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+.btn-primary {
+  background: var(--emerald);
+  color: #fff;
+  box-shadow: 0 8px 18px -6px rgba(13, 138, 114, 0.45);
+}
+.btn-primary:hover { background: var(--emerald-dark); transform: translateY(-1px); }
+.btn-navy {
+  background: var(--navy);
+  color: #fff;
+}
+.btn-navy:hover { background: var(--navy-light); transform: translateY(-1px); }
+.btn-outline {
+  background: #fff;
+  color: var(--navy);
+  border-color: var(--border);
+}
+.btn-outline:hover { border-color: var(--navy); background: var(--surface-alt); }
+.btn-staff {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  padding: 8px 13px;
+  border-radius: 10px;
+}
+.btn-staff:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+  background: var(--surface-alt);
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 6px;
+}
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--navy);
+  border-radius: 2px;
+  margin: 5px 0;
+}
+
+/* COMMON SECTION STYLES */
+section { padding: 72px 0; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11.5px;
+  color: var(--emerald);
+  background: var(--emerald-soft);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.sec-head {
+  max-width: 660px;
+  margin-bottom: 40px;
+}
+.sec-head h2 {
+  font-size: clamp(28px, 3.6vw, 40px);
+  margin-bottom: 12px;
+}
+.sec-head p {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* HERO */
+.hero {
+  padding: 48px 0 68px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(36px, 4.6vw, 54px);
+  margin-bottom: 18px;
+}
+.hero h1 span { color: var(--emerald); }
+.hero p.lead {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  max-width: 52ch;
+}
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+.trust-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.trust-item strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  color: var(--navy);
+}
+.trust-item span {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.hero-visual { position: relative; }
+.hero-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 6px solid #fff;
+  aspect-ratio: 4/3.5;
+  background: var(--surface-alt);
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.clinic-badge {
+  margin-top: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.clinic-badge-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.status-indicator {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 0 4px var(--emerald-soft);
+  flex-shrink: 0;
+}
+.clinic-badge strong { font-size: 13.5px; display: block; color: var(--navy); }
+.clinic-badge span { font-size: 12px; color: var(--muted); }
+
+/* ==========================================================================
+   NUEVA SECCION DE SERVICIOS INNOVADORA: DIRECTORIO CLINICO & ARANCEL INTERACTIVO
+   (Sin las 6 tarjetas repetidas de IA)
+   ========================================================================== */
+.clinical-explorer {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.dept-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.dept-tab {
+  background: none;
+  border: 0;
+  border-right: 1px solid var(--border);
+  padding: 18px 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.dept-tab:last-child { border-right: 0; }
+.dept-tab:hover { background: rgba(255,255,255,0.6); }
+.dept-tab.active {
+  background: var(--surface);
+}
+.dept-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--emerald);
+}
+.dept-num {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--emerald);
+  margin-bottom: 3px;
+}
+.dept-name {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.dept-sub {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.dept-stage {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  align-items: stretch;
+}
+.dept-showcase {
+  padding: 32px;
+  background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.dept-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.dept-pill {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+.dept-pill.green {
+  background: rgba(13, 138, 114, 0.35);
+  color: #6ee7b7;
+  border: 1px solid rgba(110, 231, 183, 0.3);
+}
+.dept-showcase h3 {
+  color: #fff;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.dept-showcase p {
+  color: #cbd5e1;
+  font-size: 14.5px;
+  margin-bottom: 22px;
+}
+.dept-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.dept-spec span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+.dept-spec strong {
+  font-size: 13.5px;
+  color: #fff;
+}
+
+/* ARANCEL INTERACTIVO (TABLA DE PROCEDIMIENTOS) */
+.arancel-pane {
+  padding: 30px 34px;
+  display: flex;
+  flex-direction: column;
+}
+.arancel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--navy);
+  margin-bottom: 6px;
+}
+.arancel-head strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+}
+.arancel-head span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.proc-list {
+  display: flex;
+  flex-direction: column;
+}
+.proc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.proc-row:last-child { border-bottom: 0; }
+.proc-info { flex: 1; }
+.proc-title-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.proc-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.proc-duration {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--surface-alt);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.proc-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.proc-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.proc-price {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--emerald-dark);
+  text-align: right;
+}
+.proc-price small {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.proc-btn {
+  border: 1.5px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 7px 13px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.proc-btn:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* FRANJA BENTO DE URGENCIAS Y DOMICILIOS */
+.bento-strip {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+}
+.bento-box {
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--border);
+}
+.bento-urg {
+  background: #fff5f5;
+  border-color: #fecaca;
+}
+.bento-dom {
+  background: var(--surface);
+}
+.bento-box h4 { font-size: 19px; margin-bottom: 4px; }
+.bento-box p { font-size: 13.5px; color: var(--muted); }
+
+/* EQUIPO MEDICO */
+.team-sec { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.doc-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.doc-photo {
+  aspect-ratio: 16/11;
+  background: var(--surface-alt);
+  overflow: hidden;
+}
+.doc-photo img { width: 100%; height: 100%; object-fit: cover; }
+.doc-body { padding: 20px 22px; }
+.doc-tp {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--navy);
+  background: #e2e8f0;
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.doc-body h3 { font-size: 19px; margin-bottom: 4px; }
+.doc-role { font-size: 13.5px; font-weight: 700; color: var(--emerald); margin-bottom: 8px; }
+.doc-body p { font-size: 13.5px; color: var(--muted); }
+
+/* PUBLIC BOOKING SECTION */
+.book-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+}
+.book-side {
+  background: var(--navy);
+  color: #fff;
+  padding: 38px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-side h3 { color: #fff; font-size: 25px; margin-bottom: 10px; }
+.book-side p { color: #cbd5e1; font-size: 14.5px; margin-bottom: 24px; }
+.steps-nav { display: flex; flex-direction: column; gap: 6px; }
+.snav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+.snav.active { background: rgba(255, 255, 255, 0.12); opacity: 1; }
+.snav.done { opacity: 0.9; }
+.snav .num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 13px;
+}
+.snav.active .num { background: var(--emerald); }
+.snav .lb { font-weight: 700; font-size: 14px; }
+.side-note {
+  margin-top: 24px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 12.5px;
+  color: #cbd5e1;
+}
+.side-note strong { color: #fff; display: block; margin-bottom: 2px; }
+
+.book-main {
+  padding: 38px 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 440px;
+}
+.step { display: none; }
+.step.active { display: block; }
+.step h4 { font-size: 22px; margin-bottom: 4px; }
+.step .hint { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+
+.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.chip {
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: 0.18s;
+}
+.chip:hover { border-color: var(--navy); }
+.chip.sel { border-color: var(--emerald); background: var(--emerald-soft); color: var(--emerald-dark); }
+.chip svg { width: 28px; height: 28px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.grid-opt { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.opt {
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  border-radius: 13px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: 0.18s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.opt:hover { border-color: var(--navy); }
+.opt.sel { border-color: var(--emerald); background: var(--emerald-soft); }
+.opt .ot { font-weight: 800; font-size: 14.5px; color: var(--navy); }
+.opt .os { font-size: 12.5px; color: var(--muted); }
+.opt .op { font-weight: 800; font-size: 13.5px; color: var(--emerald-dark); }
+
+.days { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.day {
+  min-width: 68px;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 10px 8px;
+  cursor: pointer;
+  transition: 0.18s;
+}
+.day:hover { border-color: var(--navy); }
+.day.sel { border-color: var(--navy); background: var(--navy); color: #fff; }
+.day .dd { font-weight: 800; font-size: 18px; font-family: 'Outfit', sans-serif; }
+.day .dm { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.85; }
+
+.slots { display: flex; gap: 8px; flex-wrap: wrap; }
+.slot {
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13.5px;
+  transition: 0.18s;
+}
+.slot:hover { border-color: var(--navy); }
+.slot.sel { border-color: var(--emerald); background: var(--emerald-soft); color: var(--emerald-dark); }
+
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-weight: 700; font-size: 13px; margin-bottom: 5px; color: var(--navy); }
+.field input, .field select {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 14.5px;
+  background: var(--bg);
+  color: var(--text);
+}
+.field input:focus, .field select:focus {
+  outline: 0;
+  border-color: var(--emerald);
+  background: #fff;
+}
+.book-foot {
+  margin-top: auto;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.ghost {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ghost:hover { color: var(--navy); }
+
+.confirm-box { text-align: center; padding: 8px 0; }
+.confirm-box .tick {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--emerald-soft);
+  color: var(--emerald);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+}
+.confirm-box .tick svg { width: 30px; height: 30px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+.summary-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: left;
+  margin: 14px auto;
+  max-width: 400px;
+}
+.summary-card .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--border);
+}
+.summary-card .row:last-child { border: 0; }
+.summary-card .row span:first-child { color: var(--muted); }
+.summary-card .row span:last-child { font-weight: 700; color: var(--navy); }
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* CARNET DIGITAL */
+.carnet-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+.petcard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  max-width: 410px;
+  width: 100%;
+}
+.petcard .top {
+  background: var(--navy);
+  padding: 22px 24px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.petcard .top .ph {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.petcard .top .ph img { width: 100%; height: 100%; object-fit: cover; }
+.petcard .top h4 { color: #fff; font-size: 21px; }
+.petcard .top .meta { font-size: 13px; color: #cbd5e1; }
+.petcard .body { padding: 20px 24px; }
+.vac {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+.vac:last-child { border: 0; }
+.vdot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.vac .vt { font-weight: 700; font-size: 14px; color: var(--navy); }
+.vac .vd { font-size: 12px; color: var(--muted); }
+.vac .vstat {
+  margin-left: auto;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.badge-st {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.st-confirm { background: var(--emerald-soft); color: var(--emerald-dark); }
+.st-paid { background: #dbeafe; color: #1e40af; }
+.st-pend { background: var(--amber-soft); color: var(--amber); }
+
+/* TESTIMONIALS */
+.tgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.tcard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 26px;
+}
+.stars { display: flex; gap: 3px; margin-bottom: 12px; }
+.stars svg { width: 17px; height: 17px; fill: #f59e0b; }
+.tcard p { font-size: 14.5px; color: var(--text); margin-bottom: 18px; }
+.tauth { display: flex; align-items: center; gap: 12px; }
+.tauth .ph {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--surface-alt);
+  flex-shrink: 0;
+}
+.tauth .ph img { width: 100%; height: 100%; object-fit: cover; }
+.tauth .nm { font-weight: 800; font-size: 14px; color: var(--navy); }
+.tauth .rl { font-size: 12.5px; color: var(--muted); }
+
+/* FAQ */
+.faq { max-width: 780px; margin: 0 auto; }
+.q { border-bottom: 1px solid var(--border); }
+.q button {
+  width: 100%;
+  background: none;
+  border: 0;
+  text-align: left;
+  padding: 20px 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 18.5px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.q .ic { width: 24px; height: 24px; transition: 0.25s; flex-shrink: 0; }
+.q.open .ic { transform: rotate(45deg); }
+.q .ic svg { width: 24px; height: 24px; stroke: var(--emerald); fill: none; stroke-width: 2.2; stroke-linecap: round; }
+.q .ans { max-height: 0; overflow: hidden; transition: 0.3s; color: var(--muted); font-size: 15px; }
+.q .ans p { padding: 0 4px 20px; }
+
+/* FOOTER */
+footer {
+  background: var(--navy-dark);
+  color: #cbd5e1;
+  padding: 60px 0 28px;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+footer .brand-title strong { color: #fff; }
+footer .brand-mark { background: var(--emerald); }
+.foot-col h5 {
+  font-weight: 800;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.foot-col a, .foot-col p {
+  display: block;
+  color: #cbd5e1;
+  font-size: 14px;
+  margin-bottom: 9px;
+}
+.foot-col a:hover { color: #5eead4; }
+.hours { display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 7px; }
+.hours span:last-child { font-weight: 700; color: #fff; }
+.foot-bot {
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #94a3b8;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   MODAL DE INICIO DE SESION (PORTAL EMPLEADOS / INTRANET CLINICA)
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(12, 25, 43, 0.65);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-backdrop.open { display: flex; }
+.login-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  width: min(430px, 100%);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: modalIn 0.22s ease-out;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+.login-head {
+  background: var(--navy);
+  color: #fff;
+  padding: 24px 26px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.login-head h3 { color: #fff; font-size: 20px; margin-bottom: 4px; }
+.login-head p { color: #cbd5e1; font-size: 13px; }
+.login-close {
+  background: rgba(255,255,255,0.12);
+  border: 0;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 800;
+}
+.login-body { padding: 24px 26px; }
+.demo-cred-box {
+  background: var(--emerald-soft);
+  border: 1px solid rgba(13, 138, 114, 0.25);
+  border-radius: 11px;
+  padding: 11px 13px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--emerald-dark);
+}
+.demo-cred-box button {
+  background: var(--emerald);
+  color: #fff;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 11.5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.login-err {
+  display: none;
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 9px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   VISTA PRIVADA: SISTEMA INTERNO DE LA CLINICA (SOLO VISIBLE TRAS LOGIN)
+   ========================================================================== */
+#adminApp {
+  display: none;
+  min-height: 100vh;
+  background: #eef2f6;
+}
+body.admin-mode #publicSite,
+body.admin-mode .wafloat {
+  display: none !important;
+}
+body.admin-mode #adminApp {
+  display: block;
+}
+
+.admin-topbar {
+  background: var(--navy-dark);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+.admin-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-badge {
+  background: rgba(13, 138, 114, 0.28);
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  color: #5eead4;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.admin-user-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255,255,255,0.08);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.admin-user-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+}
+
+.admin-main {
+  padding: 32px 0 64px;
+}
+.sys-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.sys-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.kpi-card .kpi-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.kpi-card .kpi-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 6px 0 2px;
+}
+.kpi-card .kpi-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.kpi-card.kpi-in .kpi-val { color: var(--emerald); }
+.kpi-card.kpi-out .kpi-val { color: var(--danger); }
+.kpi-card.kpi-net {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.kpi-card.kpi-net .kpi-label,
+.kpi-card.kpi-net .kpi-sub { color: #cbd5e1; }
+.kpi-card.kpi-net .kpi-val { color: #fff; }
+
+.sys-workspace {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 22px;
+  align-items: start;
+}
+.panel-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.panel-head {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fcfdfe;
+}
+.panel-head h3 {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.panel-head h3 svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--emerald);
+  fill: none;
+  stroke-width: 2.1;
+}
+.panel-body { padding: 20px 22px; }
+
+/* CALENDAR WIDGET */
+.cal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.cal-month-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 16.5px;
+  color: var(--navy);
+  text-transform: capitalize;
+}
+.cal-nav { display: flex; gap: 6px; }
+.cal-btn {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy);
+  cursor: pointer;
+}
+.cal-btn:hover { background: var(--surface-alt); border-color: #cbd5e1; }
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding-bottom: 6px;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 18px;
+}
+.cal-cell {
+  aspect-ratio: 1 / 0.88;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  transition: 0.15s;
+}
+.cal-cell:hover { border-color: var(--navy); background: #fff; }
+.cal-cell.empty { background: transparent; border-color: transparent; cursor: default; }
+.cal-cell.today { border-color: var(--emerald); color: var(--emerald-dark); }
+.cal-cell.selected {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.cal-dots {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 3px;
+}
+.cal-count-pill {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--emerald-soft);
+  color: var(--emerald-dark);
+  line-height: 1.3;
+}
+.cal-cell.selected .cal-count-pill {
+  background: var(--emerald);
+  color: #fff;
+}
+
+.quick-form {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+  display: none;
+}
+.quick-form.open { display: block; }
+.quick-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.quick-form input, .quick-form select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.agenda-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.agenda-bar strong { font-size: 14px; color: var(--navy); }
+.filter-tabs { display: flex; gap: 4px; }
+.ftab {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.ftab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+.appt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+.appt-item {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--emerald);
+  border-radius: 11px;
+  padding: 12px 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: 0.2s;
+}
+.appt-item.paid { border-left-color: var(--navy); background: #f8fafc; }
+.appt-item.highlight {
+  animation: pulseHighlight 2.2s ease;
+}
+@keyframes pulseHighlight {
+  0% { box-shadow: 0 0 0 0 rgba(13, 138, 114, 0.5); background: var(--emerald-soft); }
+  100% { box-shadow: 0 0 0 10px rgba(13, 138, 114, 0); background: #fff; }
+}
+.appt-time {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--navy);
+  background: var(--surface-alt);
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 78px;
+}
+.appt-time small {
+  display: block;
+  font-size: 10.5px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.appt-info { flex-grow: 1; }
+.appt-info .pet-line {
+  font-weight: 800;
+  font-size: 14.5px;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.appt-info .meta-line {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.appt-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.btn-mini {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.btn-mini:hover { background: var(--surface-alt); }
+.btn-mini.charge {
+  background: var(--emerald);
+  border-color: var(--emerald);
+  color: #fff;
+}
+.btn-mini.charge:hover { background: var(--emerald-dark); }
+.btn-mini.del { color: var(--danger); }
+
+/* CAJA (CASH REGISTER & POS) */
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.m-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+}
+.m-card span {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.m-card strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15.5px;
+  color: var(--navy);
+}
+
+.caja-form {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+.caja-form-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.caja-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.caja-grid-3 {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.caja-form input, .caja-form select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.tx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 310px;
+  overflow-y: auto;
+}
+.tx-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 13px;
+}
+.tx-left { display: flex; align-items: center; gap: 10px; }
+.tx-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+.tx-in { background: var(--emerald-soft); color: var(--emerald-dark); }
+.tx-out { background: var(--danger-soft); color: var(--danger); }
+.tx-concept { font-weight: 700; color: var(--navy); }
+.tx-meta { font-size: 11.5px; color: var(--muted); }
+.tx-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.tx-amount {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+}
+.tx-amount.pos { color: var(--emerald-dark); }
+.tx-amount.neg { color: var(--danger); }
+
+/* ==========================================================================
+   MODULO DE FICHAS DE MASCOTAS Y RECORDATORIOS AUTOMATICOS POR WHATSAPP
+   ========================================================================== */
+.wa-engine-sec {
+  margin-bottom: 26px;
+}
+.wa-engine-grid {
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: 22px;
+  align-items: start;
+}
+.pet-record-card {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--amber);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.pet-record-card:hover {
+  border-color: var(--navy);
+  box-shadow: var(--shadow-sm);
+}
+.pet-record-card.active-pet {
+  border-color: var(--navy);
+  border-left: 5px solid var(--emerald);
+  background: #f8;
+  box-shadow: 0 8px 22px -8px rgba(20, 40, 65, 0.15);
+}
+.pet-record-card.sent {
+  border-left-color: var(--emerald);
+}
+.pet-rec-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.pet-rec-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.pet-rec-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.pet-history-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.hist-pill {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--surface-alt);
+  color: var(--text);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.due-alert-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 9px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.due-alert-box.is-sent {
+  background: var(--emerald-soft);
+  border-color: rgba(13, 138, 114, 0.25);
+}
+.due-info strong {
+  display: block;
+  font-size: 13px;
+  color: #92400e;
+}
+.due-alert-box.is-sent .due-info strong {
+  color: var(--emerald-dark);
+}
+.due-info span {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+/* SIMULADOR DE CELULAR WHATSAPP EN VIVO */
+.wa-phone {
+  background: #e5ddd5;
+  border: 8px solid var(--navy-dark);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+}
+.wa-phone-header {
+  background: #075e54;
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.wa-phone-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wa-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #128c7e;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.wa-phone-contact strong {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.1;
+}
+.wa-phone-contact span {
+  font-size: 11px;
+  color: #d1fae5;
+}
+.wa-chat-area {
+  padding: 16px;
+  min-height: 255px;
+  max-height: 310px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 0);
+  background-size: 14px 14px;
+}
+.wa-bubble {
+  max-width: 90%;
+  padding: 10px 13px;
+  border-radius: 12px;
+  font-size: 12.8px;
+  line-height: 1.48;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.wa-bubble.out {
+  background: #dcf8c6;
+  color: #111827;
+  align-self: flex-end;
+  border-top-right-radius: 2px;
+}
+.wa-bubble.in {
+  background: #ffffff;
+  color: #111827;
+  align-self: flex-start;
+  border-top-left-radius: 2px;
+}
+.wa-bubble-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 10.5px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+.wa-checks {
+  color: #3b82f6;
+  font-weight: 800;
+}
+.wa-phone-actions {
+  background: #f0f2f5;
+  padding: 12px 14px;
+  border-top: 1px solid #d1d5db;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* BUSCADOR PUBLICO DE CARNET DIGITAL */
+.carnet-Tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.carnet-pill-btn {
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--navy);
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.18s;
+}
+.carnet-pill-btn:hover { border-color: var(--navy); }
+.carnet-pill-btn.active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+/* WHATSAPP FLOAT */
+.wafloat {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  background: #25d366;
+  color: #fff;
+  padding: 13px 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: 0 12px 28px -6px rgba(37, 211, 102, 0.65);
+  transition: 0.2s;
+}
+.wafloat:hover { transform: translateY(-2px); background: #1ebe5d; }
+.wafloat svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* TOAST NOTIFICATION */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 120;
+  background: var(--navy);
+  color: #fff;
+  padding: 13px 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  font-size: 13.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(140%);
+  opacity: 0;
+  transition: 0.3s;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@media (max-width: 1020px) {
+  .menu { display: none; }
+  .burger { display: block; }
+  .menu.open {
+    display: flex;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #fff;
+    padding: 18px 6vw;
+    gap: 8px;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .hero-grid, .dept-stage, .bento-strip, .book-box, .sys-workspace, .wa-engine-grid, .carnet-grid {
+    grid-template-columns: 1fr;
+  }
+  .dept-tabs { grid-template-columns: 1fr 1fr; }
+  .team-grid, .tgrid, .sys-kpi-grid { grid-template-columns: 1fr 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .dept-tabs, .team-grid, .tgrid, .sys-kpi-grid, .frow, .grid-opt, .chips, .foot-grid, .caja-grid, .caja-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .methods-grid { grid-template-columns: 1fr 1fr; }
+  .trust-bar { grid-template-columns: 1fr; gap: 10px; }
+  .book-main, .arancel-pane, .dept-showcase { padding: 24px 20px; }
+  .wafloat span { display: none; }
+  .wafloat { padding: 14px; border-radius: 50%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================================================
+     SITIO WEB PUBLICO (LO QUE VE EL CLIENTE / DUEÑO DE MASCOTA)
+     ========================================================================== -->
+<div id="publicSite">
+
+  <!-- BARRA SUPERIOR DE URGENCIAS Y UBICACION REAL -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-info">
+        <span class="topbar-item">
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Av. Bolívar # 19N-42, Sector Portal del Quindío · Armenia, Quindío
+        </span>
+        <span class="topbar-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Consultorio Lun–Sáb 8:00 am – 7:00 pm
+        </span>
+      </div>
+      <div>
+        <a href="https://wa.me/573026000109?text=Hola%20Huellas,%20necesito%20atenci%C3%B3n%20de%20urgencia%20veterinaria" target="_blank" rel="noopener" class="urg-badge">
+          <span class="urg-dot"></span>
+          Urgencias 24/7: (606) 745 8210 · WhatsApp 302 600 0109
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER ARMONIOSO EN 1 SOLA LINEA -->
+  <header id="hdr">
+    <div class="container nav">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24">
+            <circle cx="6.5" cy="8.5" r="2"/>
+            <circle cx="10.2" cy="5.5" r="2"/>
+            <circle cx="14.2" cy="5.5" r="2"/>
+            <circle cx="17.8" cy="8.5" r="2"/>
+            <path d="M12 10.5c-3.2 0-5.8 2.2-6.3 5-.4 2.1 1.2 4 3.4 4 1.1 0 1.9-.5 2.9-.5s1.8.5 2.9.5c2.2 0 3.8-1.9 3.4-4-.5-2.8-3.1-5-6.3-5Z"/>
+          </svg>
+        </span>
+        <div class="brand-title">
+          <strong>Huellas</strong>
+          <span>Clínica Veterinaria</span>
+        </div>
+      </a>
+
+      <nav class="menu" id="menu">
+        <a href="#servicios">Especialidades y Tarifas</a>
+        <a href="#equipo">Equipo Médico</a>
+        <a href="#agenda">Reservar Cita</a>
+        <a href="#carnet">Carnet Digital</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-staff" onclick="openLoginModal()" title="Acceso exclusivo para personal de la clínica">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Acceso Personal
+        </button>
+        <a href="#agenda" class="btn btn-primary">Agendar cita</a>
+        <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Centro Médico Veterinario · Armenia, Quindío
+        </span>
+        <h1>Diagnóstico preciso y trato humano para <span>tu mascota.</span></h1>
+        <p class="lead">Consultorio médico, laboratorio clínico propio, ecografía Doppler, cirugía con anestesia inhalatoria y dermatología. Consulta nuestro arancel transparente y agenda en línea.</p>
+        <div class="hero-cta">
+          <a href="#agenda" class="btn btn-primary">
+            Reservar cita médica
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#servicios" class="btn btn-outline">
+            Explorar especialidades y tarifas
+          </a>
+        </div>
+        <div class="trust-bar">
+          <div class="trust-item">
+            <strong>COMVEZCOL</strong>
+            <span>Especialistas con tarjeta profesional vigente</span>
+          </div>
+          <div class="trust-item">
+            <strong>Lab & Ecografía</strong>
+            <span>Resultados diagnósticos el mismo día</span>
+          </div>
+          <div class="trust-item">
+            <strong>Norte de Armenia</strong>
+            <span>Parqueadero privado frente al consultorio</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-photo">
+          <img src="https://images.pexels.com/photos/6235233/pexels-photo-6235233.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Médico veterinario auscultando a un perro en consulta" loading="eager">
+        </div>
+        <div class="clinic-badge">
+          <div class="clinic-badge-left">
+            <span class="status-indicator"></span>
+            <div>
+              <strong>Consultorio abierto hoy · Turno médico disponible</strong>
+              <span>Atención por cita programada y urgencias 24 horas</span>
+            </div>
+          </div>
+          <a href="#agenda" class="btn btn-navy" style="padding:8px 14px;font-size:13px">Ver cupos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       NUEVO DIRECTORIO CLINICO Y ARANCEL INTERACTIVO (REEMPLAZA LAS 6 TARJETAS)
+       ======================================================================== -->
+  <section id="servicios">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Unidades clínicas y arancel 2026</span>
+        <h2>Explora nuestras áreas médicas y tarifas</h2>
+        <p>Selecciona una unidad clínica para ver su protocolo de atención, equipamiento y valores de referencia en pesos colombianos (COP).</p>
+      </div>
+
+      <div class="clinical-explorer">
+        <!-- PESTAÑAS DE DEPARTAMENTOS CLINICOS -->
+        <div class="dept-tabs" id="deptTabs">
+          <button class="dept-tab active" data-dept="preventiva">
+            <span class="dept-num">Unidad 01</span>
+            <span class="dept-name">Medicina Preventiva</span>
+            <span class="dept-sub">Consultas, vacunas y control</span>
+          </button>
+          <button class="dept-tab" data-dept="diagnostico">
+            <span class="dept-num">Unidad 02</span>
+            <span class="dept-name">Imagenología y Lab</span>
+            <span class="dept-sub">Ecografía, rayos X y sangre</span>
+          </button>
+          <button class="dept-tab" data-dept="cirugia">
+            <span class="dept-num">Unidad 03</span>
+            <span class="dept-name">Cirugía y Odontología</span>
+            <span class="dept-sub">Quirófano y profilaxis</span>
+          </button>
+          <button class="dept-tab" data-dept="dermatologia">
+            <span class="dept-num">Unidad 04</span>
+            <span class="dept-name">Dermato y Grooming</span>
+            <span class="dept-sub">Piel, baños medicados y estética</span>
+          </button>
+        </div>
+
+        <!-- ESCENARIO DIVIDIDO: FICHA CLINICA + TABLA DE ARANCELES -->
+        <div class="dept-stage">
+          <div class="dept-showcase" id="deptShowcase">
+            <!-- Renderizado dinámicamente por JS -->
+          </div>
+          <div class="arancel-pane">
+            <div class="arancel-head">
+              <strong id="arancelTitle">Procedimientos y Tarifas</strong>
+              <span>Valores en COP · Impuestos incluidos</span>
+            </div>
+            <div class="proc-list" id="procList">
+              <!-- Renderizado dinámicamente por JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FRANJA BENTO COMPLEMENTARIA -->
+      <div class="bento-strip">
+        <div class="bento-box bento-urg">
+          <div>
+            <span class="urg-badge" style="background:#fee2e2;color:#b91c1c;border-color:#fca5a5;margin-bottom:6px">
+              <span class="urg-dot"></span> Triage Inmediato 24 Horas
+            </span>
+            <h4>Unidad de Urgencias y Hospitalización</h4>
+            <p>Atención prioritaria sin cita previa para intoxicaciones, traumas, dificultad respiratoria o partos distócicos.</p>
+          </div>
+          <button class="btn btn-navy" onclick="prefillBooking('Consulta de urgencia', 120000)">
+            Urgencia ($120.000)
+          </button>
+        </div>
+
+        <div class="bento-box bento-dom">
+          <div>
+            <span style="font-size:11.5px;font-weight:800;color:var(--emerald);text-transform:uppercase;letter-spacing:0.06em">Armenia, El Edén y Circasia</span>
+            <h4>Consulta y Vacunación a Domicilio</h4>
+            <p>Ideal para gatos que se estresan al viajar o camadas de cachorros en su primer esquema.</p>
+          </div>
+          <button class="btn btn-outline" onclick="prefillBooking('Consulta general', 75000)">
+            Solicitar domicilio
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO MEDICO -->
+  <section class="team-sec" id="equipo">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Dirección científica</span>
+        <h2>Profesionales acreditados a cargo de tu mascota</h2>
+        <p>Cada paciente es atendido por médicos veterinarios titulados y registrados ante COMVEZCOL.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="doc-card">
+          <div class="doc-photo">
+            <img src="https://images.pexels.com/photos/6235657/pexels-photo-6235657.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Dr. Sebastián Morales realizando ecografía veterinaria" loading="lazy">
+          </div>
+          <div class="doc-body">
+            <span class="doc-tp">T.P. 29104 COMVEZCOL</span>
+            <h3>Dr. Sebastián Morales</h3>
+            <div class="doc-role">Medicina Interna e Imagenología</div>
+            <p>Médico Veterinario (U. de Caldas), diplomado en ecografía diagnóstica abdominal y cardiología de pequeños animales.</p>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-photo">
+            <img src="https://images.pexels.com/photos/6234612/pexels-photo-6234612.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Equipo médico en consulta con propietario" loading="lazy">
+          </div>
+          <div class="doc-body">
+            <span class="doc-tp">T.P. 34812 COMVEZCOL</span>
+            <h3>Dra. Valentina Restrepo</h3>
+            <div class="doc-role">Medicina Felina y Dermatología</div>
+            <p>Especialista en manejo Cat Friendly, alergias cutáneas, citología dermatológica y medicina preventiva.</p>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-photo">
+            <img src="https://images.pexels.com/photos/6235015/pexels-photo-6235015.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Dr. Camilo Londoño en área clínica" loading="lazy">
+          </div>
+          <div class="doc-body">
+            <span class="doc-tp">T.P. 31590 COMVEZCOL</span>
+            <h3>Dr. Camilo Londoño</h3>
+            <div class="doc-role">Cirugía y Cuidado Crítico</div>
+            <p>Encargado de quirófano, cirugía de tejidos blandos, profilaxis periodontal y atención de urgencias 24 horas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDAMIENTO EN LINEA -->
+  <section id="agenda">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Agenda digital</span>
+        <h2>Reserva tu cita en menos de un minuto</h2>
+        <p>Elige el servicio, día y hora. Recibirás tu comprobante y recordatorio por WhatsApp.</p>
+      </div>
+
+      <div class="book-box">
+        <div class="book-side">
+          <div>
+            <h3>Reserva paso a paso</h3>
+            <p>Selecciona especie, procedimiento y horario disponible. No necesitas pagar por adelantado.</p>
+            <div class="steps-nav" id="stepsNav">
+              <div class="snav active" data-s="0"><span class="num">1</span><span class="lb">Paciente</span></div>
+              <div class="snav" data-s="1"><span class="num">2</span><span class="lb">Servicio y tarifa</span></div>
+              <div class="snav" data-s="2"><span class="num">3</span><span class="lb">Fecha y hora</span></div>
+              <div class="snav" data-s="3"><span class="num">4</span><span class="lb">Datos del propietario</span></div>
+            </div>
+          </div>
+          <div class="side-note">
+            <strong>📍 Sede Norte · Armenia</strong>
+            Av. Bolívar # 19N-42. Contamos con consultorio separado para gatos y parqueadero sin costo.
+          </div>
+        </div>
+
+        <div class="book-main">
+          <!-- STEP 0 -->
+          <div class="step active" data-step="0">
+            <h4>¿Qué paciente vamos a atender?</h4>
+            <p class="hint">Selecciona la especie para asignar el consultorio adecuado.</p>
+            <div class="chips" data-group="pet">
+              <div class="chip" data-v="Perro">
+                <svg viewBox="0 0 24 24"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5"/><path d="M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444c0-1.061-.162-2.2-.493-3.309"/></svg>
+                Perro
+              </div>
+              <div class="chip" data-v="Gato">
+                <svg viewBox="0 0 24 24"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/></svg>
+                Gato
+              </div>
+              <div class="chip" data-v="Exótico / Otro">
+                <svg viewBox="0 0 24 24"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+                Exótico / Otro
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 1 -->
+          <div class="step" data-step="1">
+            <h4>Selecciona el servicio</h4>
+            <p class="hint">Precios en pesos colombianos (COP) con impuestos incluidos.</p>
+            <div class="grid-opt" data-group="serv">
+              <div class="opt" data-v="Consulta general" data-price="75000">
+                <div><div class="ot">Consulta general</div><div class="os">Valoración médica completa</div></div>
+                <span class="op">$75.000</span>
+              </div>
+              <div class="opt" data-v="Vacunación" data-price="65000">
+                <div><div class="ot">Vacunación</div><div class="os">Biológico + carnet digital</div></div>
+                <span class="op">$65.000</span>
+              </div>
+              <div class="opt" data-v="Estética y baño" data-price="60000">
+                <div><div class="ot">Estética y baño</div><div class="os">Baño, corte, oídos y uñas</div></div>
+                <span class="op">$60.000</span>
+              </div>
+              <div class="opt" data-v="Laboratorio y ecografía" data-price="95000">
+                <div><div class="ot">Laboratorio y ecografía</div><div class="os">Perfil básico / imagenología</div></div>
+                <span class="op">$95.000</span>
+              </div>
+              <div class="opt" data-v="Profilaxis dental" data-price="180000">
+                <div><div class="ot">Profilaxis dental</div><div class="os">Ultrasonido y pulido</div></div>
+                <span class="op">$180.000</span>
+              </div>
+              <div class="opt" data-v="Consulta de urgencia" data-price="120000">
+                <div><div class="ot">Consulta de urgencia</div><div class="os">Atención prioritaria</div></div>
+                <span class="op">$120.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="step" data-step="2">
+            <h4>Elige día y hora</h4>
+            <p class="hint">Selecciona entre los próximos días hábiles y horarios disponibles.</p>
+            <div class="days" id="days"></div>
+            <div class="slots" id="slots" data-group="slot"></div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="step" data-step="3">
+            <h4>Datos del paciente y propietario</h4>
+            <p class="hint">Para enviarte la confirmación y preparar la historia clínica.</p>
+            <div class="frow">
+              <div class="field"><label>Nombre de la mascota</label><input id="fPet" placeholder="Ej: Bruno"></div>
+              <div class="field"><label>Tu nombre y apellido</label><input id="fOwner" placeholder="Ej: Mariana Quintero"></div>
+            </div>
+            <div class="frow">
+              <div class="field"><label>Celular / WhatsApp</label><input id="fPhone" placeholder="Ej: 312 450 8890" inputmode="tel"></div>
+              <div class="field"><label>Raza o síntoma breve (opcional)</label><input id="fNotes" placeholder="Ej: Golden, control anual"></div>
+            </div>
+          </div>
+
+          <!-- STEP 4: CONFIRMATION -->
+          <div class="step" data-step="4">
+            <div class="confirm-box">
+              <div class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+              <h4>¡Tu cita ha sido reservada!</h4>
+              <p class="hint" style="margin-bottom:4px">Nuestro equipo de recepción ya recibió tu turno en la agenda de la clínica.</p>
+              <div class="summary-card" id="summary"></div>
+              <div class="confirm-actions">
+                <a id="waConfirmLink" href="#" target="_blank" rel="noopener" class="btn btn-primary">
+                  Confirmar por WhatsApp
+                </a>
+                <button class="btn btn-outline" onclick="resetBookingWizard()">Agendar otra mascota</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="book-foot" id="bookFoot">
+            <button class="ghost" id="backBtn" style="visibility:hidden">← Paso anterior</button>
+            <button class="btn btn-primary" id="nextBtn" disabled>Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARNET DIGITAL DE VACUNACION (CONECTADO CON LAS FICHAS DEL SISTEMA) -->
+  <section id="carnet">
+    <div class="container carnet-grid">
+      <div>
+        <span class="eyebrow">Ficha clínica y recordatorios por WhatsApp</span>
+        <h2 style="font-size:clamp(28px,3.5vw,38px);margin-bottom:14px">Nunca más se pasa una vacuna o desparasitación</h2>
+        <p style="color:var(--muted);font-size:16px;margin-bottom:20px">Guardamos la ficha digital de tu mascota con cada biológico y desparasitante aplicado. Cuando se acerca la siguiente dosis, nuestro sistema te envía automáticamente un recordatorio a tu WhatsApp con el enlace directo para agendar.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="width:28px;height:28px;border-radius:50%;background:var(--emerald-soft);color:var(--emerald);display:grid;place-items:center;flex-shrink:0;font-weight:800">✓</span>
+            <div>
+              <strong style="color:var(--navy);display:block;font-size:15.5px">Ficha digital con lote de biológico y peso</strong>
+              <span style="color:var(--muted);font-size:14px">Consultable desde el celular para viajes, guarderías o controles médicos.</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="width:28px;height:28px;border-radius:50%;background:var(--emerald-soft);color:var(--emerald);display:grid;place-items:center;flex-shrink:0;font-weight:800">✓</span>
+            <div>
+              <strong style="color:var(--navy);display:block;font-size:15.5px">Aviso automático al WhatsApp del dueño</strong>
+              <span style="color:var(--muted);font-size:14px">El sistema detecta el vencimiento y envía el recordatorio sin que tengas que anotarlo en papel.</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);display:block;margin-bottom:8px">
+            🔍 Consultar ficha de ejemplo en vivo:
+          </span>
+          <div class="carnet-Tabs" id="publicCarnetTabs"></div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:center">
+        <div class="petcard" id="publicCarnetCard">
+          <!-- Renderizado dinámicamente desde las fichas reales del sistema -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIONES CON FOTOS REALES DE PERSONAS -->
+  <section id="opiniones" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Familias de Armenia</span>
+        <h2>Experiencias de nuestros pacientes</h2>
+      </div>
+      <div class="tgrid">
+        <div class="tcard">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+          </div>
+          <p>"Llevamos a Rocky por una otitis que no cedía en otro lado. La Dra. Valentina le hizo citología ahí mismo en el consultorio y en cuatro días ya estaba sano."</p>
+          <div class="tauth">
+            <div class="ph"><img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=160" alt="Laura Gómez"></div>
+            <div><div class="nm">Laura Gómez</div><div class="rl">Barrio Laureles · Mamá humana de Rocky</div></div>
+          </div>
+        </div>
+
+        <div class="tcard">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+          </div>
+          <p>"Operaron a Mía de esterilización con anestesia inhalatoria. Nos enviaron fotos durante la recuperación y salió caminando tranquila el mismo día."</p>
+          <div class="tauth">
+            <div class="ph"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=160" alt="Andrés Patiño"></div>
+            <div><div class="nm">Andrés Patiño</div><div class="rl">Sector Norte · Dueño de Mía (Gata Persa)</div></div>
+          </div>
+        </div>
+
+        <div class="tcard">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5 4.8 1.3 7-6.6-3.7L5 21l1.3-7-5-4.8 7-.8Z"/></svg>
+          </div>
+          <p>"Excelente atención de urgencias un domingo en la noche cuando Tomás se intoxicó. Nos recibieron de inmediato y los precios son muy justos."</p>
+          <div class="tauth">
+            <div class="ph"><img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=160" alt="Carolina Ruiz"></div>
+            <div><div class="nm">Carolina Ruiz</div><div class="rl">Condominio La Castellana · Dueña de Tomás</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Información útil antes de tu visita</h2>
+      </div>
+      <div class="faq">
+        <div class="q">
+          <button>¿Qué requisitos debe cumplir mi mascota para baño o profilaxis dental?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="ans"><p>Para baño y peluquería solicitamos esquema de vacunación al día. Para profilaxis dental o cirugía programada realizamos exámenes prequirúrgicos de sangre en nuestro laboratorio y solicitamos ayuno sólido de 8 horas.</p></div>
+        </div>
+        <div class="q">
+          <button>¿Hacen consultas veterinarias a domicilio en Armenia?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="ans"><p>Sí, cubrimos todo el perímetro urbano de Armenia, Calarcá y condominios vía El Edén o Circasia para consulta general, vacunación y toma de muestras de laboratorio.</p></div>
+        </div>
+        <div class="q">
+          <button>¿Qué medios de pago reciben en la clínica?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="ans"><p>Recibimos efectivo, transferencia por Nequi, Daviplata, código QR Bancolombia y todas las tarjetas débito o crédito en datáfono sin recargo adicional.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="#inicio" style="margin-bottom:14px">
+            <span class="brand-mark">
+              <svg viewBox="0 0 24 24">
+                <circle cx="6.5" cy="8.5" r="2"/><circle cx="10.2" cy="5.5" r="2"/><circle cx="14.2" cy="5.5" r="2"/><circle cx="17.8" cy="8.5" r="2"/>
+                <path d="M12 10.5c-3.2 0-5.8 2.2-6.3 5-.4 2.1 1.2 4 3.4 4 1.1 0 1.9-.5 2.9-.5s1.8.5 2.9.5c2.2 0 3.8-1.9 3.4-4-.5-2.8-3.1-5-6.3-5Z"/>
+              </svg>
+            </span>
+            <div class="brand-title">
+              <strong>Huellas</strong>
+              <span style="background:rgba(255,255,255,0.12);color:#5eead4">Clínica Veterinaria</span>
+            </div>
+          </a>
+          <p style="font-size:14px;color:#94a3b8;max-width:32ch">Medicina preventiva, imagenología, cirugía y dermatología en el norte de Armenia, Quindío.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Unidades Clínicas</h5>
+          <a href="#servicios">Medicina Preventiva ($75.000)</a>
+          <a href="#servicios">Vacunación Certificada ($65.000)</a>
+          <a href="#servicios">Ecografía y Laboratorio</a>
+          <a href="#servicios">Cirugía y Profilaxis</a>
+        </div>
+        <div class="foot-col">
+          <h5>Ubicación y Contacto</h5>
+          <p>Av. Bolívar # 19N-42, Armenia, Quindío</p>
+          <p>Fijo: (606) 745 8210</p>
+          <p>WhatsApp: +57 302 600 0109</p>
+          <p>recepcion@huellasvet.co</p>
+        </div>
+        <div class="foot-col">
+          <h5>Horarios de Atención</h5>
+          <div class="hours"><span>Lunes a Viernes</span><span>8:00 am – 7:00 pm</span></div>
+          <div class="hours"><span>Sábados</span><span>8:00 am – 5:00 pm</span></div>
+          <div class="hours"><span>Domingos y Festivos</span><span>9:00 am – 1:00 pm</span></div>
+          <div class="hours"><span>Urgencias Médicas</span><span style="color:#5eead4">24 Horas</span></div>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 Huellas Centro Médico Veterinario S.A.S. · NIT 901.482.310-4 · Armenia, Quindío</span>
+        <button onclick="openLoginModal()" style="background:none;border:0;color:#94a3b8;font-size:13px;cursor:pointer;text-decoration:underline">
+          🔒 Intranet / Acceso Personal Administrativo
+        </button>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /#publicSite -->
+
+
+<!-- ==========================================================================
+     MODAL DE INICIO DE SESION PARA PERSONAL DE LA CLINICA
+     ========================================================================== -->
+<div class="modal-backdrop" id="loginModal">
+  <div class="login-card">
+    <div class="login-head">
+      <div>
+        <h3>Portal Clínico · Intranet</h3>
+        <p>Acceso restringido a médicos, recepción y caja</p>
+      </div>
+      <button class="login-close" onclick="closeLoginModal()">✕</button>
+    </div>
+    <div class="login-body">
+      <div class="demo-cred-box">
+        <div>
+          <strong>Modo Demostración</strong><br>
+          <span>Usuario: <b>admin</b> · Clave: <b>huellas2026</b></span>
+        </div>
+        <button type="button" onclick="fillAndLoginDemo()">⚡ Entrar (1 clic)</button>
+      </div>
+
+      <div class="login-err" id="loginErr">Credenciales incorrectas. Usa admin / huellas2026.</div>
+
+      <form onsubmit="handleStaffLogin(event)">
+        <div class="field">
+          <label>Usuario o correo institucional</label>
+          <input id="loginUser" type="text" placeholder="admin o recepcion@huellasvet.co" required>
+        </div>
+        <div class="field">
+          <label>Contraseña</label>
+          <input id="loginPass" type="password" placeholder="••••••••" required>
+        </div>
+        <div class="field">
+          <label>Turno / Rol activo</label>
+          <select id="loginRole">
+            <option value="Dra. Valentina Restrepo · Recepción y Caja">Dra. Valentina Restrepo · Recepción y Caja</option>
+            <option value="Dr. Sebastián Morales · Dirección Médica">Dr. Sebastián Morales · Dirección Médica</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-navy" style="width:100%;margin-top:6px;padding:12px">
+          Iniciar sesión en el Sistema
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==========================================================================
+     SISTEMA PRIVADO DE LA CLINICA (SOLO ACCESIBLE TRAS INICIAR SESION)
+     ========================================================================== -->
+<div id="adminApp">
+  <div class="admin-topbar">
+    <div class="container admin-topbar-inner">
+      <div class="admin-brand">
+        <span class="brand-mark" style="background:var(--emerald)">
+          <svg viewBox="0 0 24 24">
+            <circle cx="6.5" cy="8.5" r="2"/><circle cx="10.2" cy="5.5" r="2"/><circle cx="14.2" cy="5.5" r="2"/><circle cx="17.8" cy="8.5" r="2"/>
+            <path d="M12 10.5c-3.2 0-5.8 2.2-6.3 5-.4 2.1 1.2 4 3.4 4 1.1 0 1.9-.5 2.9-.5s1.8.5 2.9.5c2.2 0 3.8-1.9 3.4-4-.5-2.8-3.1-5-6.3-5Z"/>
+          </svg>
+        </span>
+        <div>
+          <strong style="font-family:'Outfit',sans-serif;font-size:18px;display:block;line-height:1.1">HUELLAS · ERP CLÍNICO</strong>
+          <span style="font-size:11.5px;color:#94a3b8">Agenda Médica & Control de Caja POS · Sede Armenia</span>
+        </div>
+        <span class="admin-badge">Sesión Activa</span>
+      </div>
+
+      <div class="admin-user-bar">
+        <div class="admin-user-pill">
+          <span class="dot"></span>
+          <span id="activeStaffName">Dra. Valentina Restrepo · Recepción y Caja</span>
+        </div>
+        <button class="btn btn-outline" style="padding:7px 13px;font-size:12.5px" onclick="logoutStaff()">
+          ← Cerrar sesión y volver a la web
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="admin-main">
+    <div class="container">
+      <div class="sys-header">
+        <div>
+          <span class="eyebrow" style="background:#dbeafe;color:#1e40af;margin-bottom:6px">Panel Administrativo Interno · Todo en 1</span>
+          <h2>Fichas de Mascotas, Recordatorios WhatsApp, Agenda y Caja</h2>
+          <p style="color:var(--muted);font-size:14.5px">Guarda la ficha de cada mascota, programa su próxima vacuna o desparasitación y dispara el recordatorio automático al WhatsApp del dueño con enlace a la agenda.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="toggleNewPetRecordForm()">+ Nueva Ficha / Vacuna</button>
+          <button class="btn btn-navy" onclick="toggleQuickApptForm()">+ Nueva Cita</button>
+          <button class="btn btn-outline" onclick="resetDemoData()" title="Restaurar fichas, citas y caja de demostración">↺ Restaurar demo</button>
+        </div>
+      </div>
+
+      <!-- KPI CARDS -->
+      <div class="sys-kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <span>Vacunas / Desp. por avisar</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <div class="kpi-val" id="kpiDueReminders" style="color:var(--amber)">0</div>
+          <div class="kpi-sub" id="kpiTotalPets">0 fichas de mascotas</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <span>Citas en fecha seleccionada</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="kpi-val" id="kpiDayAppts">0</div>
+          <div class="kpi-sub" id="kpiTotalAppts">0 citas en agenda</div>
+        </div>
+
+        <div class="kpi-card kpi-in">
+          <div class="kpi-label">
+            <span>Ingresos en Caja</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="kpi-val" id="kpiIncome">$0</div>
+          <div class="kpi-sub" id="kpiIncomeCount">0 cobros registrados</div>
+        </div>
+
+        <div class="kpi-card kpi-net">
+          <div class="kpi-label">
+            <span>Saldo Neto en Caja</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <div class="kpi-val" id="kpiNet">$0</div>
+          <div class="kpi-sub">Efectivo + Nequi + Bancos (<span id="kpiExpense">$0</span> gastos)</div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           MODULO 1: FICHAS DE MASCOTAS + RECORDATORIOS AUTOMATICOS POR WHATSAPP
+           ==================================================================== -->
+      <div class="wa-engine-sec">
+        <div class="wa-engine-grid">
+
+          <!-- COLUMNA IZQUIERDA: FICHAS DE MASCOTAS Y CONTROL DE VACUNAS / DESPARASITACION -->
+          <div class="panel-box">
+            <div class="panel-head">
+              <h3>
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                Fichas de Mascotas · Vacunas y Desparasitación
+              </h3>
+              <div style="display:flex;gap:6px">
+                <button class="cal-btn" onclick="sendAllPendingReminders()" style="background:var(--emerald-soft);color:var(--emerald-dark);border-color:rgba(13,138,114,0.3)">
+                  🤖 Avisar a todos hoy
+                </button>
+                <button class="cal-btn" onclick="toggleNewPetRecordForm()">+ Nueva Ficha</button>
+              </div>
+            </div>
+
+            <div class="panel-body">
+              <!-- FORMULARIO PARA CREAR FICHA DE MASCOTA Y PROGRAMAR VACUNA / DESPARASITACION -->
+              <div class="quick-form" id="newPetRecordForm">
+                <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px;display:flex;justify-content:space-between">
+                  <span>Guardar Ficha de Mascota y Programar Próxima Vacuna / Desparasitación</span>
+                  <button onclick="toggleNewPetRecordForm()" style="background:none;border:0;cursor:pointer;font-weight:800;color:var(--muted)">✕</button>
+                </div>
+                <div class="quick-form-grid">
+                  <input id="prPet" placeholder="Nombre mascota (ej: Thor)">
+                  <select id="prSpecies">
+                    <option value="Perro">Perro</option>
+                    <option value="Gato">Gato</option>
+                  </select>
+                  <input id="prBreed" placeholder="Raza y peso (ej: Beagle · 14 kg)">
+                  <input id="prAge" placeholder="Edad (ej: 2 años)">
+                  <input id="prOwner" placeholder="Nombre del dueño (ej: Dr. Andrés)">
+                  <input id="prPhone" placeholder="WhatsApp dueño (ej: 310 452 1980)">
+                </div>
+                <div class="quick-form-grid" style="margin-bottom:10px">
+                  <select id="prNextDose">
+                    <option value="Desparasitación Interna + Externa|35000">Próxima: Desparasitación Interna + Externa ($35.000)</option>
+                    <option value="Refuerzo Vacuna Séxtuple Canina|65000">Próxima: Vacuna Séxtuple Canina ($65.000)</option>
+                    <option value="Vacuna Antirrábica Anual|65000">Próxima: Vacuna Antirrábica Anual ($65.000)</option>
+                    <option value="Vacuna Triple Felina + Leucemia|70000">Próxima: Vacuna Triple Felina ($70.000)</option>
+                    <option value="Tableta Antipulgas / Garrapatas (NexGard)|58000">Próxima: Antipulgas y Garrapatas ($58.000)</option>
+                  </select>
+                  <select id="prDueOffset">
+                    <option value="2">Vence en 2 días (Disparar alerta esta semana)</option>
+                    <option value="3">Vence en 3 días (Disparar alerta esta semana)</option>
+                    <option value="1">Vence mañana (Urgente)</option>
+                    <option value="30">Vence en 1 mes (30 días)</option>
+                    <option value="90">Vence en 3 meses (90 días)</option>
+                  </select>
+                </div>
+                <button class="btn btn-primary" style="width:100%;padding:9px;font-size:13px" onclick="saveNewPetRecord()">
+                  💾 Guardar Ficha y Programar Recordatorio por WhatsApp
+                </button>
+              </div>
+
+              <div class="agenda-bar" style="border-top:0;padding-top:0;margin-bottom:12px">
+                <strong style="font-size:13.5px;color:var(--navy)">Selecciona una mascota para ver su ficha y su recordatorio de WhatsApp:</strong>
+                <div class="filter-tabs">
+                  <button class="ftab active" id="tabPetsAll" onclick="setPetFilter('all')">Todas</button>
+                  <button class="ftab" id="tabPetsDue" onclick="setPetFilter('pending')">Por avisar</button>
+                  <button class="ftab" id="tabPetsSent" onclick="setPetFilter('sent')">Avisadas ✓</button>
+                </div>
+              </div>
+
+              <div id="petRecordsList" style="max-height:410px;overflow-y:auto;padding-right:3px"></div>
+            </div>
+          </div>
+
+          <!-- COLUMNA DERECHA: SIMULADOR Y MOTOR DE ENVIO WHATSAPP EN VIVO -->
+          <div class="panel-box">
+            <div class="panel-head">
+              <h3>
+                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                Vista Previa del Recordatorio al Dueño (WhatsApp)
+              </h3>
+              <span class="badge-st st-confirm">Bot Activo</span>
+            </div>
+
+            <div class="panel-body">
+              <div class="wa-phone">
+                <div class="wa-phone-header">
+                  <div class="wa-phone-contact">
+                    <div class="wa-avatar" id="waSimAvatar">LG</div>
+                    <div>
+                      <strong id="waSimOwnerName">Laura Gómez (Dueña de Rocky)</strong>
+                      <span id="waSimOwnerPhone">+57 310 452 1980 · en línea</span>
+                    </div>
+                  </div>
+                  <span style="font-size:11px;background:rgba(255,255,255,0.16);padding:3px 8px;border-radius:999px">WhatsApp</span>
+                </div>
+
+                <div class="wa-chat-area" id="waSimChatArea">
+                  <!-- Burbujas renderizadas dinámicamente -->
+                </div>
+
+                <div class="wa-phone-actions">
+                  <button class="btn btn-primary" style="width:100%;padding:9px 12px;font-size:13px" onclick="triggerSimulatedWhatsAppReminder()">
+                    🚀 1. Enviar recordatorio automático al dueño
+                  </button>
+                  <button class="btn btn-navy" style="width:100%;padding:9px 12px;font-size:13px" onclick="simulateOwnerBookingFromWhatsApp()">
+                    💬 2. Simular que el dueño confirma y agenda cita
+                  </button>
+                  <a id="waRealSendBtn" href="#" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;padding:8px 12px;font-size:12.5px">
+                    📲 Enviar este recordatorio a un WhatsApp real (wa.me)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WORKSPACE: LEFT = CALENDAR & APPOINTMENTS, RIGHT = CASH REGISTER (CAJA) -->
+      <div class="sys-workspace">
+
+        <!-- PANEL IZQUIERDO: CALENDARIO Y CITAS -->
+        <div class="panel-box">
+          <div class="panel-head">
+            <h3>
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Calendario de Citas
+            </h3>
+            <button class="cal-btn" onclick="toggleQuickApptForm()">+ Agendar aquí</button>
+          </div>
+
+          <div class="panel-body">
+            <!-- FORMULARIO RAPIDO DE CITA EN RECEPCION -->
+            <div class="quick-form" id="quickApptForm">
+              <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px;display:flex;justify-content:space-between">
+                <span>Nueva cita presencial / telefónica</span>
+                <button onclick="toggleQuickApptForm()" style="background:none;border:0;cursor:pointer;font-weight:800;color:var(--muted)">✕</button>
+              </div>
+              <div class="quick-form-grid">
+                <input id="qaDate" type="date">
+                <select id="qaTime">
+                  <option value="08:30 AM">08:30 AM</option>
+                  <option value="09:30 AM">09:30 AM</option>
+                  <option value="10:30 AM">10:30 AM</option>
+                  <option value="11:30 AM">11:30 AM</option>
+                  <option value="02:00 PM">02:00 PM</option>
+                  <option value="03:30 PM">03:30 PM</option>
+                  <option value="04:30 PM">04:30 PM</option>
+                  <option value="05:30 PM">05:30 PM</option>
+                </select>
+                <input id="qaPet" placeholder="Mascota (ej: Luna)">
+                <select id="qaSpecies">
+                  <option value="Perro">Perro</option>
+                  <option value="Gato">Gato</option>
+                  <option value="Exótico / Otro">Exótico / Otro</option>
+                </select>
+                <input id="qaOwner" placeholder="Propietario (ej: Carlos Mejía)">
+                <input id="qaPhone" placeholder="WhatsApp (ej: 315 890 1122)">
+              </div>
+              <div style="display:grid;grid-template-columns:1.4fr 0.6fr;gap:10px">
+                <select id="qaService">
+                  <option value="Consulta general|75000">Consulta general — $75.000</option>
+                  <option value="Vacunación|65000">Vacunación — $65.000</option>
+                  <option value="Estética y baño|60000">Estética y baño — $60.000</option>
+                  <option value="Laboratorio y ecografía|95000">Laboratorio y ecografía — $95.000</option>
+                  <option value="Profilaxis dental|180000">Profilaxis dental — $180.000</option>
+                  <option value="Consulta de urgencia|120000">Consulta de urgencia — $120.000</option>
+                </select>
+                <button class="btn btn-primary" style="padding:8px 12px;font-size:13px" onclick="saveQuickAppt()">Guardar cita</button>
+              </div>
+            </div>
+
+            <!-- CONTROLES DEL MES -->
+            <div class="cal-top">
+              <div class="cal-month-title" id="calMonthTitle">Mes Año</div>
+              <div class="cal-nav">
+                <button class="cal-btn" onclick="changeMonth(-1)">◀ Ant</button>
+                <button class="cal-btn" onclick="goToday()">Hoy</button>
+                <button class="cal-btn" onclick="changeMonth(1)">Sig ▶</button>
+              </div>
+            </div>
+
+            <div class="cal-weekdays">
+              <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+
+            <!-- LISTA DE CITAS DEL DIA SELECCIONADO -->
+            <div class="agenda-bar">
+              <strong id="selectedDateLabel">Citas del día</strong>
+              <div class="filter-tabs">
+                <button class="ftab active" id="tabDay" onclick="setApptViewMode('day')">Día elegido</button>
+                <button class="ftab" id="tabAll" onclick="setApptViewMode('all')">Ver todas</button>
+              </div>
+            </div>
+
+            <div class="appt-list" id="apptList"></div>
+          </div>
+        </div>
+
+        <!-- PANEL DERECHO: MANEJO DE CAJA Y POS -->
+        <div class="panel-box">
+          <div class="panel-head">
+            <h3>
+              <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              Manejo de Caja y Arqueo (COP)
+            </h3>
+            <span style="font-size:12px;font-weight:700;color:var(--emerald-dark);background:var(--emerald-soft);padding:4px 10px;border-radius:999px">Caja Abierta</span>
+          </div>
+
+          <div class="panel-body">
+            <!-- DESGLOSE POR MEDIO DE PAGO -->
+            <div class="methods-grid">
+              <div class="m-card">
+                <span>💵 Efectivo</span>
+                <strong id="mEfectivo">$0</strong>
+              </div>
+              <div class="m-card">
+                <span>📱 Nequi / Davi</span>
+                <strong id="mNequi">$0</strong>
+              </div>
+              <div class="m-card">
+                <span>🏦 Bancolombia</span>
+                <strong id="mBanco">$0</strong>
+              </div>
+              <div class="m-card">
+                <span>💳 Tarjeta / POS</span>
+                <strong id="mTarjeta">$0</strong>
+              </div>
+            </div>
+
+            <!-- FORMULARIO PARA REGISTRAR INGRESO O EGRESO -->
+            <div class="caja-form">
+              <div class="caja-form-title">
+                <span>Registrar movimiento en caja</span>
+                <select id="presetService" onchange="applyPresetService(this.value)" style="width:auto;padding:3px 8px;font-size:11.5px;border-radius:6px;border:1px solid var(--border)">
+                  <option value="">⚡ Autocompletar tarifa...</option>
+                  <option value="in|Consulta médica general|75000">Consulta general ($75.000)</option>
+                  <option value="in|Vacunación certificada|65000">Vacunación ($65.000)</option>
+                  <option value="in|Estética y baño canino/felino|60000">Estética y baño ($60.000)</option>
+                  <option value="in|Laboratorio / Ecografía|95000">Laboratorio / Eco ($95.000)</option>
+                  <option value="in|Profilaxis dental|180000">Profilaxis dental ($180.000)</option>
+                  <option value="in|Desparasitación|35000">Desparasitación ($35.000)</option>
+                  <option value="out|Compra insumos médicos / farmacia|85000">Gasto: Insumos médicos (-$85.000)</option>
+                  <option value="out|Pago proveedor / mensajería|30000">Gasto: Proveedor / Domicilio (-$30.000)</option>
+                </select>
+              </div>
+              <div class="caja-grid">
+                <select id="txType">
+                  <option value="in">➕ Ingreso (Cobro)</option>
+                  <option value="out">➖ Egreso (Gasto)</option>
+                </select>
+                <input id="txConcept" placeholder="Concepto (ej: Consulta general, Vacuna, Insumos)">
+              </div>
+              <div class="caja-grid-3">
+                <input id="txClient" placeholder="Paciente / Tercero (ej: Rocky)">
+                <input id="txAmount" type="number" min="500" step="500" placeholder="Valor COP (ej: 75000)">
+                <select id="txMethod">
+                  <option value="Efectivo">Efectivo</option>
+                  <option value="Nequi">Nequi / Daviplata</option>
+                  <option value="Bancolombia">Bancolombia</option>
+                  <option value="Tarjeta">Tarjeta / Datáfono</option>
+                </select>
+              </div>
+              <button class="btn btn-navy" style="width:100%;padding:10px;font-size:13.5px" onclick="addManualTransaction()">
+                Registrar movimiento en Caja
+              </button>
+            </div>
+
+            <!-- HISTORIAL DE MOVIMIENTOS -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <strong style="font-size:13.5px;color:var(--navy)">Movimientos del turno</strong>
+              <select id="txFilterMethod" onchange="renderCaja()" style="border:1px solid var(--border);border-radius:7px;padding:3px 8px;font-size:12px;background:var(--bg)">
+                <option value="ALL">Todos los medios</option>
+                <option value="Efectivo">Solo Efectivo</option>
+                <option value="Nequi">Solo Nequi</option>
+                <option value="Bancolombia">Solo Bancolombia</option>
+                <option value="Tarjeta">Solo Tarjeta</option>
+              </select>
+            </div>
+
+            <div class="tx-list" id="txList"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div><!-- /#adminApp -->
+
+<!-- BOTON FLOTANTE DE WHATSAPP REAL -->
+<a class="wafloat" href="https://wa.me/573026000109?text=Hola%20Huellas%20Centro%20M%C3%A9dico%20Veterinario,%20quisiera%20consultar%20por%20una%20cita" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.5 23.5l1.6-6A11.5 11.5 0 1 1 12 23.5a11.4 11.4 0 0 1-5.5-1.4L.5 23.5Zm6.3-3.8.4.2a9.5 9.5 0 1 0-3.2-3.1l.2.4-.9 3.4 3.5-.9Zm11-5c-.1-.2-.5-.3-1-.6s-1.4-.7-1.6-.8-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a7.7 7.7 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.1-.3 0-.4.1-.5l.4-.5.3-.5v-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.9 2.9 0 0 0 6 7.2a5 5 0 0 0 1 2.7 11.5 11.5 0 0 0 4.5 4 5.1 5.1 0 0 0 3.1.7 2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2Z"/></svg>
+  <span>WhatsApp Directo</span>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================================
+// 1. DIRECTORIO CLINICO INTERACTIVO (REEMPLAZA LAS 6 TARJETAS GENERICAS)
+// ============================================================================
+const CLINICAL_DEPARTMENTS = {
+  preventiva: {
+    badge: 'Unidad 01 · Consultorio General y Felino',
+    status: 'Cupos hoy',
+    title: 'Medicina Preventiva y Consulta Externa',
+    desc: 'Evaluación clínica integral por sistemas, control de peso, planes de vacunación con biológicos importados Nobivac/Felocell y certificación sanitaria para viajes nacionales o internacionales.',
+    headDoc: 'Dra. Valentina Restrepo (T.P. 34812)',
+    equip: 'Consultorio Cat Friendly & Otoscopía HD',
+    procedures: [
+      {
+        name: 'Consulta médica general',
+        duration: '40 min',
+        desc: 'Auscultación cardiopulmonar, revisión oftálmica/ótica y apertura de historia clínica.',
+        price: 75000,
+        bookingKey: 'Consulta general'
+      },
+      {
+        name: 'Vacunación certificada (Séxtuple / Triple Felina / Rabia)',
+        duration: '25 min',
+        desc: 'Incluye chequeo físico previo, biológico con cadena de frío y carnet digital.',
+        price: 65000,
+        bookingKey: 'Vacunación'
+      },
+      {
+        name: 'Desparasitación interna y externa + Control de peso',
+        duration: '20 min',
+        desc: 'Dosificación según peso exacto y programación de recordatorio por WhatsApp.',
+        price: 35000,
+        bookingKey: 'Vacunación'
+      },
+      {
+        name: 'Certificado médico de salud para viaje aéreo',
+        duration: '45 min',
+        desc: 'Inspección clínica exigida por aerolíneas e ICA con firma y sello COMVEZCOL.',
+        price: 85000,
+        bookingKey: 'Consulta general'
+      }
+    ]
+  },
+  diagnostico: {
+    badge: 'Unidad 02 · Diagnóstico en Sede',
+    status: 'Resultados el mismo día',
+    title: 'Laboratorio Clínico e Imagenología',
+    desc: 'Procesamos muestras de sangre, orina y citología directamente en nuestra sede de Armenia sin esperar remisiones, además de ecografía abdominal y gestacional en tiempo real.',
+    headDoc: 'Dr. Sebastián Morales (T.P. 29104)',
+    equip: 'Ecógrafo Doppler Mindray & Analizador IDEXX',
+    procedures: [
+      {
+        name: 'Ecografía abdominal o gestacional completa',
+        duration: '40 min',
+        desc: 'Informe ecográfico escrito e imágenes digitales entregadas al finalizar el estudio.',
+        price: 95000,
+        bookingKey: 'Laboratorio y ecografía'
+      },
+      {
+        name: 'Perfil hemático + Química sanguínea prequirúrgica',
+        duration: '30 min',
+        desc: 'Hemograma completo, creatinina, ALT y fosfatasa alcalina procesados en clínica.',
+        price: 95000,
+        bookingKey: 'Laboratorio y ecografía'
+      },
+      {
+        name: 'Citología ótica o dermatológica por microscopía',
+        duration: '25 min',
+        desc: 'Identificación inmediata de levaduras (Malassezia), bacterias o ácaros.',
+        price: 48000,
+        bookingKey: 'Laboratorio y ecografía'
+      }
+    ]
+  },
+  cirugia: {
+    badge: 'Unidad 03 · Quirófano Monitoreado',
+    status: 'Anestesia inhalatoria',
+    title: 'Cirugía Segura y Odontología por Ultrasonido',
+    desc: 'Todo procedimiento bajo anestesia general cuenta con intubación endotraqueal, anestesia inhalatoria con Isoflurano y monitoreo multiparámetros continuo.',
+    headDoc: 'Dr. Camilo Londoño (T.P. 31590)',
+    equip: 'Monitor Multiparámetros & Cavitrón Ultrasónico',
+    procedures: [
+      {
+        name: 'Profilaxis periodontal por ultrasonido + Pulido dental',
+        duration: '90 min',
+        desc: 'Remoción de cálculo subgingival, pulido de esmalte y analgesia ambulatoria.',
+        price: 180000,
+        bookingKey: 'Profilaxis dental'
+      },
+      {
+        name: 'Valoración prequirúrgica para esterilización (OVH / Orquiectomía)',
+        duration: '35 min',
+        desc: 'Evaluación anestésica ASA, cotización por peso y programación de quirófano.',
+        price: 75000,
+        bookingKey: 'Consulta general'
+      },
+      {
+        name: 'Consulta prioritaria de urgencias y estabilización',
+        duration: 'Inmediata',
+        desc: 'Triage, canalización venosa inicial, oximetría y valoración de trauma o tóxicos.',
+        price: 120000,
+        bookingKey: 'Consulta de urgencia'
+      }
+    ]
+  },
+  dermatologia: {
+    badge: 'Unidad 04 · Piel y Pelaje',
+    status: 'Dermocosmética clínica',
+    title: 'Dermatología y Grooming Clínico',
+    desc: 'Unimos el diagnóstico dermatológico con baños terapéuticos supervisados, usando shampoos medicados (clorhexidina, avena coloidal o ketoconazol) y secado a baja temperatura.',
+    headDoc: 'Dra. Valentina Restrepo (T.P. 34812)',
+    equip: 'Cabina de Secado Térmico & Agua Temperada',
+    procedures: [
+      {
+        name: 'Estética completa y baño hipoalergénico',
+        duration: '90 min',
+        desc: 'Baño con línea hipoalergénica, corte por raza, limpieza de oídos y limado de uñas.',
+        price: 60000,
+        bookingKey: 'Estética y baño'
+      },
+      {
+        name: 'Baño terapéutico medicado (Tratamiento dermatológico)',
+        duration: '75 min',
+        desc: 'Con tiempo de exposición controlada de 10 minutos para pacientes con dermatitis.',
+        price: 68000,
+        bookingKey: 'Estética y baño'
+      },
+      {
+        name: 'Consulta dermatológica especializada',
+        duration: '45 min',
+        desc: 'Diagnóstico de prurito crónico, alergia alimentaria, alopecia y otitis recurrente.',
+        price: 85000,
+        bookingKey: 'Consulta general'
+      }
+    ]
+  }
+};
+
+function renderDepartment(key) {
+  const dept = CLINICAL_DEPARTMENTS[key];
+  if (!dept) return;
+
+  document.querySelectorAll('.dept-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.dept === key);
+  });
+
+  document.getElementById('deptShowcase').innerHTML = `
+    <div>
+      <div class="dept-tag-row">
+        <span class="dept-pill">${escapeHTML(dept.badge)}</span>
+        <span class="dept-pill green">● ${escapeHTML(dept.status)}</span>
+      </div>
+      <h3>${escapeHTML(dept.title)}</h3>
+      <p>${escapeHTML(dept.desc)}</p>
+    </div>
+    <div class="dept-specs">
+      <div class="dept-spec">
+        <span>Especialista a cargo</span>
+        <strong>${escapeHTML(dept.headDoc)}</strong>
+      </div>
+      <div class="dept-spec">
+        <span>Tecnología en sede</span>
+        <strong>${escapeHTML(dept.equip)}</strong>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('arancelTitle').textContent = `Arancel · ${dept.title}`;
+  document.getElementById('procList').innerHTML = dept.procedures.map(p => `
+    <div class="proc-row">
+      <div class="proc-info">
+        <div class="proc-title-line">
+          <span class="proc-name">${escapeHTML(p.name)}</span>
+          <span class="proc-duration">⏱ ${escapeHTML(p.duration)}</span>
+        </div>
+        <div class="proc-desc">${escapeHTML(p.desc)}</div>
+      </div>
+      <div class="proc-right">
+        <div class="proc-price">
+          ${formatCOP(p.price)}
+          <small>COP</small>
+        </div>
+        <button class="proc-btn" onclick="prefillBooking('${escapeHTML(p.bookingKey)}', ${p.price})">
+          Reservar →
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+document.getElementById('deptTabs').addEventListener('click', e => {
+  const btn = e.target.closest('.dept-tab');
+  if (!btn) return;
+  renderDepartment(btn.dataset.dept);
+});
+
+// ============================================================================
+// 2. AUTENTICACION / INICIO DE SESION PARA EL SISTEMA INTERNO
+// ============================================================================
+function openLoginModal() {
+  document.getElementById('loginErr').style.display = 'none';
+  document.getElementById('loginModal').classList.add('open');
+  setTimeout(() => document.getElementById('loginUser').focus(), 80);
+}
+
+function closeLoginModal() {
+  document.getElementById('loginModal').classList.remove('open');
+}
+
+function fillAndLoginDemo() {
+  document.getElementById('loginUser').value = 'admin';
+  document.getElementById('loginPass').value = 'huellas2026';
+  enterAdminSystem();
+}
+
+function handleStaffLogin(e) {
+  e.preventDefault();
+  const u = document.getElementById('loginUser').value.trim().toLowerCase();
+  const p = document.getElementById('loginPass').value.trim();
+
+  if ((u === 'admin' || u === 'recepcion@huellasvet.co' || u === 'doctora') && (p === 'huellas2026' || p === '1234' || p === 'admin')) {
+    enterAdminSystem();
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+  }
+}
+
+function enterAdminSystem() {
+  const role = document.getElementById('loginRole').value;
+  document.getElementById('activeStaffName').textContent = role;
+  closeLoginModal();
+  document.body.classList.add('admin-mode');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  renderAllSystem();
+  showToast('Sesión iniciada en el Sistema Clínico (Calendario y Caja)');
+}
+
+function logoutStaff() {
+  document.body.classList.remove('admin-mode');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showToast('Sesión cerrada. Has vuelto a la página pública.');
+}
+
+// Cerrar modal al hacer clic fuera
+document.getElementById('loginModal').addEventListener('click', e => {
+  if (e.target.id === 'loginModal') closeLoginModal();
+});
+
+// ============================================================================
+// 3. UTILIDADES DE FECHA Y MONEDA (COP $)
+// ============================================================================
+const DIAS_CORTO = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
+const MESES_CORTO = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+const MESES_LARGO = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+function toISODate(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+function addDaysISO(baseDate, offset) {
+  const d = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate() + offset);
+  return toISODate(d);
+}
+
+function formatHumanDate(iso) {
+  const [y, m, d] = iso.split('-').map(Number);
+  const dt = new Date(y, m - 1, d);
+  return `${DIAS_CORTO[dt.getDay()]} ${d} ${MESES_CORTO[m - 1]}`;
+}
+
+function formatCOP(amount) {
+  const n = Math.round(Number(amount) || 0);
+  return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
+function escapeHTML(str) {
+  return String(str || '').replace(/[&<>"']/g, s => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[s]));
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => t.classList.remove('show'), 3600);
+}
+
+// ============================================================================
+// 4. ESTADO CENTRAL: FICHAS DE MASCOTAS + RECORDATORIOS WHATSAPP + CITAS + CAJA
+// ============================================================================
+const STORAGE_KEY = 'huellas_vet_sys_v4';
+const todayDate = new Date();
+const todayISO = toISODate(todayDate);
+
+function getInitialDemoData() {
+  const d0 = todayISO;
+  const d1 = addDaysISO(todayDate, 1);
+  const d2 = addDaysISO(todayDate, 2);
+  const d3 = addDaysISO(todayDate, 3);
+  const d4 = addDaysISO(todayDate, 4);
+
+  return {
+    pets: [
+      {
+        id: 'pet-1',
+        name: 'Rocky',
+        species: 'Perro',
+        breed: 'Golden Retriever · 28.4 kg',
+        age: '3 años',
+        owner: 'Laura Gómez',
+        phone: '310 452 1980',
+        photo: 'https://images.pexels.com/photos/9291124/pexels-photo-9291124.jpeg?auto=compress&cs=tinysrgb&w=240',
+        appliedHistory: [
+          { dose: 'Séxtuple Canina (Nobivac DHPPi+L)', detail: 'Aplicada · Lote #A841B · Dra. V. Restrepo' },
+          { dose: 'Antirrábica Monovalente', detail: 'Aplicada · Lote #R209C · Dr. S. Morales' }
+        ],
+        nextDose: 'Desparasitación Interna + Externa',
+        nextPrice: 35000,
+        dueDate: d3,
+        dueDays: 3,
+        reminderSent: false,
+        ownerReplied: false
+      },
+      {
+        id: 'pet-2',
+        name: 'Mía',
+        species: 'Gato',
+        breed: 'Gata Persa · 4.1 kg',
+        age: '2 años',
+        owner: 'Andrés Patiño',
+        phone: '315 820 4412',
+        photo: 'https://images.pexels.com/photos/6235116/pexels-photo-6235116.jpeg?auto=compress&cs=tinysrgb&w=240',
+        appliedHistory: [
+          { dose: 'Triple Felina (Felocell 3)', detail: 'Aplicada · Lote #F112K · Dra. V. Restrepo' },
+          { dose: 'Desparasitación Felina Broadline', detail: 'Aplicada · Control trimestral' }
+        ],
+        nextDose: 'Vacuna Leucemia Felina (Refuerzo Anual)',
+        nextPrice: 70000,
+        dueDate: d2,
+        dueDays: 2,
+        reminderSent: false,
+        ownerReplied: false
+      },
+      {
+        id: 'pet-3',
+        name: 'Tomás',
+        species: 'Perro',
+        breed: 'Labrador Retriever · 31 kg',
+        age: '5 años',
+        owner: 'Carolina Ruiz',
+        phone: '301 644 9011',
+        photo: 'https://images.pexels.com/photos/2803294/pexels-photo-2803294.jpeg?auto=compress&cs=tinysrgb&w=240',
+        appliedHistory: [
+          { dose: 'Vacuna Antirrábica Anual', detail: 'Aplicada · Lote #RB992 · Dr. C. Londoño' },
+          { dose: 'Tableta NexGard Spectra', detail: 'Aplicada · Protección ectoparásitos' }
+        ],
+        nextDose: 'Refuerzo Vacuna Séxtuple Canina',
+        nextPrice: 65000,
+        dueDate: d1,
+        dueDays: 1,
+        reminderSent: true,
+        ownerReplied: false
+      },
+      {
+        id: 'pet-4',
+        name: 'Kira',
+        species: 'Perro',
+        breed: 'Pastor Alemán · 26 kg',
+        age: '4 años',
+        owner: 'Valentina Toro',
+        phone: '318 509 3210',
+        photo: 'https://images.pexels.com/photos/6235233/pexels-photo-6235233.jpeg?auto=compress&cs=tinysrgb&w=240',
+        appliedHistory: [
+          { dose: 'Séxtuple Canina + Rabia', detail: 'Aplicada · Esquema anual completo' }
+        ],
+        nextDose: 'Desparasitación Interna + Externa',
+        nextPrice: 35000,
+        dueDate: d4,
+        dueDays: 4,
+        reminderSent: false,
+        ownerReplied: false
+      }
+    ],
+    appointments: [
+      {
+        id: 'ap-1',
+        date: d0,
+        time: '09:30 AM',
+        pet: 'Rocky',
+        species: 'Perro',
+        owner: 'Laura Gómez',
+        phone: '310 452 1980',
+        service: 'Vacunación',
+        price: 65000,
+        status: 'Pagada'
+      },
+      {
+        id: 'ap-2',
+        date: d0,
+        time: '11:30 AM',
+        pet: 'Mía',
+        species: 'Gato',
+        owner: 'Andrés Patiño',
+        phone: '315 820 4412',
+        service: 'Consulta general',
+        price: 75000,
+        status: 'Confirmada'
+      },
+      {
+        id: 'ap-3',
+        date: d0,
+        time: '03:30 PM',
+        pet: 'Tomás',
+        species: 'Perro',
+        owner: 'Carolina Ruiz',
+        phone: '301 644 9011',
+        service: 'Estética y baño',
+        price: 60000,
+        status: 'Confirmada'
+      },
+      {
+        id: 'ap-4',
+        date: d1,
+        time: '10:30 AM',
+        pet: 'Simón',
+        species: 'Gato',
+        owner: 'Felipe Castaño',
+        phone: '312 778 2300',
+        service: 'Laboratorio y ecografía',
+        price: 95000,
+        status: 'Confirmada'
+      },
+      {
+        id: 'ap-5',
+        date: d2,
+        time: '02:00 PM',
+        pet: 'Kira',
+        species: 'Perro',
+        owner: 'Valentina Toro',
+        phone: '318 509 3210',
+        service: 'Profilaxis dental',
+        price: 180000,
+        status: 'Confirmada'
+      }
+    ],
+    transactions: [
+      {
+        id: 'tx-1',
+        time: '08:45 AM',
+        type: 'in',
+        concept: 'Profilaxis dental por ultrasonido',
+        client: 'Toby · Natalia Vélez',
+        amount: 180000,
+        method: 'Tarjeta'
+      },
+      {
+        id: 'tx-2',
+        time: '09:40 AM',
+        type: 'in',
+        concept: 'Vacunación (Séxtuple Canina)',
+        client: 'Rocky · Laura Gómez',
+        amount: 65000,
+        method: 'Nequi',
+        apptId: 'ap-1'
+      },
+      {
+        id: 'tx-3',
+        time: '10:15 AM',
+        type: 'out',
+        concept: 'Compra guantes quirúrgicos y jeringas',
+        client: 'Distribuidora Médica Quindío',
+        amount: 45000,
+        method: 'Efectivo'
+      },
+      {
+        id: 'tx-4',
+        time: '11:00 AM',
+        type: 'in',
+        concept: 'Consulta médica + Desparasitación',
+        client: 'Coco · Diana Marcela Soto',
+        amount: 110000,
+        method: 'Efectivo'
+      },
+      {
+        id: 'tx-5',
+        time: '11:50 AM',
+        type: 'in',
+        concept: 'Ecografía abdominal diagnóstica',
+        client: 'Princesa · Mauricio Arango',
+        amount: 95000,
+        method: 'Bancolombia'
+      }
+    ]
+  };
+}
+
+let db = loadDB();
+let calYear = todayDate.getFullYear();
+let calMonth = todayDate.getMonth();
+let selectedISO = todayISO;
+let apptViewMode = 'day';
+let lastHighlightedApptId = null;
+let selectedPetId = (db.pets && db.pets[0]) ? db.pets[0].id : 'pet-1';
+let publicCarnetPetId = selectedPetId;
+let petFilterMode = 'all';
+
+function loadDB() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.pets) && Array.isArray(parsed.appointments) && Array.isArray(parsed.transactions)) {
+        return parsed;
+      }
+    }
+  } catch (e) {}
+  return getInitialDemoData();
+}
+
+function saveDB() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+  } catch (e) {}
+}
+
+function resetDemoData() {
+  db = getInitialDemoData();
+  selectedISO = todayISO;
+  calYear = todayDate.getFullYear();
+  calMonth = todayDate.getMonth();
+  selectedPetId = db.pets[0].id;
+  publicCarnetPetId = db.pets[0].id;
+  saveDB();
+  renderAllSystem();
+  showToast('Datos demo restaurados (Fichas, Recordatorios WhatsApp, Citas y Caja)');
+}
+
+// ============================================================================
+// 4B. LOGICA DE FICHAS DE MASCOTAS Y RECORDATORIOS AUTOMATICOS POR WHATSAPP
+// ============================================================================
+function setPetFilter(mode) {
+  petFilterMode = mode;
+  document.getElementById('tabPetsAll').classList.toggle('active', mode === 'all');
+  document.getElementById('tabPetsDue').classList.toggle('active', mode === 'pending');
+  document.getElementById('tabPetsSent').classList.toggle('active', mode === 'sent');
+  renderPetRecords();
+}
+
+function toggleNewPetRecordForm() {
+  document.getElementById('newPetRecordForm').classList.toggle('open');
+}
+
+function saveNewPetRecord() {
+  const name = document.getElementById('prPet').value.trim();
+  const species = document.getElementById('prSpecies').value;
+  const breed = document.getElementById('prBreed').value.trim() || (species === 'Gato' ? 'Felino Doméstico · 4 kg' : 'Canino · 15 kg');
+  const age = document.getElementById('prAge').value.trim() || '2 años';
+  const owner = document.getElementById('prOwner').value.trim();
+  const phone = document.getElementById('prPhone').value.trim() || '310 452 1980';
+  const [nextDose, priceStr] = document.getElementById('prNextDose').value.split('|');
+  const dueDays = Number(document.getElementById('prDueOffset').value) || 3;
+  const dueDate = addDaysISO(todayDate, dueDays);
+
+  if (!name || !owner) {
+    showToast('Ingresa el nombre de la mascota y el nombre del dueño');
+    return;
+  }
+
+  const newPet = {
+    id: 'pet-' + Date.now(),
+    name,
+    species,
+    breed,
+    age,
+    owner,
+    phone,
+    photo: species === 'Gato'
+      ? 'https://images.pexels.com/photos/6235116/pexels-photo-6235116.jpeg?auto=compress&cs=tinysrgb&w=240'
+      : 'https://images.pexels.com/photos/9291124/pexels-photo-9291124.jpeg?auto=compress&cs=tinysrgb&w=240',
+    appliedHistory: [
+      { dose: 'Valoración Médica + Control de Peso', detail: `Registrada hoy (${formatHumanDate(todayISO)})` }
+    ],
+    nextDose,
+    nextPrice: Number(priceStr) || 65000,
+    dueDate,
+    dueDays,
+    reminderSent: false,
+    ownerReplied: false
+  };
+
+  db.pets.unshift(newPet);
+  selectedPetId = newPet.id;
+  publicCarnetPetId = newPet.id;
+  saveDB();
+
+  document.getElementById('prPet').value = '';
+  document.getElementById('prBreed').value = '';
+  document.getElementById('prAge').value = '';
+  document.getElementById('prOwner').value = '';
+  document.getElementById('prPhone').value = '';
+  document.getElementById('newPetRecordForm').classList.remove('open');
+
+  renderAllSystem();
+  showToast(`Ficha de ${name} guardada. Recordatorio WhatsApp listo para ${owner}.`);
+}
+
+function selectPetForWhatsApp(petId) {
+  selectedPetId = petId;
+  renderPetRecords();
+  renderWhatsAppSimulator();
+}
+
+function renderPetRecords() {
+  const container = document.getElementById('petRecordsList');
+  if (!container) return;
+
+  let list = db.pets || [];
+  if (petFilterMode === 'pending') list = list.filter(p => !p.reminderSent);
+  if (petFilterMode === 'sent') list = list.filter(p => p.reminderSent);
+
+  if (list.length === 0) {
+    container.innerHTML = `<div style="text-align:center;padding:22px;color:var(--muted);font-size:13px;border:1px dashed var(--border);border-radius:10px">No hay fichas de mascotas en este filtro.</div>`;
+    return;
+  }
+
+  container.innerHTML = list.map(p => {
+    const isSel = p.id === selectedPetId;
+    return `
+      <div class="pet-record-card ${isSel ? 'active-pet' : ''} ${p.reminderSent ? 'sent' : ''}" onclick="selectPetForWhatsApp('${p.id}')">
+        <div class="pet-rec-top">
+          <div>
+            <div class="pet-rec-title">
+              <span>🐾 ${escapeHTML(p.name)}</span>
+              <span style="font-size:12px;font-weight:600;color:var(--muted)">(${escapeHTML(p.species)} · ${escapeHTML(p.breed)} · ${escapeHTML(p.age)})</span>
+            </div>
+            <div class="pet-rec-sub">
+              Dueño: <b>${escapeHTML(p.owner)}</b> · WhatsApp: <b>${escapeHTML(p.phone)}</b>
+            </div>
+          </div>
+          <span class="badge-st ${p.reminderSent ? 'st-confirm' : 'st-pend'}">
+            ${p.ownerReplied ? '📅 Cita Agendada' : (p.reminderSent ? '✓ WhatsApp Enviado' : `⏳ Toca en ${p.dueDays} ${p.dueDays === 1 ? 'día' : 'días'}`)}
+          </span>
+        </div>
+
+        <div class="pet-history-pills">
+          ${(p.appliedHistory || []).map(h => `<span class="hist-pill">✓ ${escapeHTML(h.dose)}</span>`).join('')}
+        </div>
+
+        <div class="due-alert-box ${p.reminderSent ? 'is-sent' : ''}">
+          <div class="due-info">
+            <strong>🔔 Próxima dosis: ${escapeHTML(p.nextDose)} (${formatCOP(p.nextPrice)})</strong>
+            <span>Fecha programada: <b>${escapeHTML(formatHumanDate(p.dueDate))}</b> · ${p.reminderSent ? 'El dueño ya recibió el recordatorio en su celular' : 'Pendiente de enviar recordatorio al dueño'}</span>
+          </div>
+          <button class="btn-mini charge" onclick="event.stopPropagation(); selectPetForWhatsApp('${p.id}'); triggerSimulatedWhatsAppReminder();">
+            ${p.reminderSent ? '📲 Reenviar WhatsApp' : '📲 Avisar por WhatsApp'}
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderWhatsAppSimulator() {
+  const pet = (db.pets || []).find(p => p.id === selectedPetId) || (db.pets && db.pets[0]);
+  if (!pet) return;
+
+  const initials = pet.owner.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase() || 'CL';
+  document.getElementById('waSimAvatar').textContent = initials;
+  document.getElementById('waSimOwnerName').textContent = `${pet.owner} (Dueño/a de ${pet.name})`;
+  document.getElementById('waSimOwnerPhone').textContent = `+57 ${pet.phone} · WhatsApp`;
+
+  const dueFormatted = formatHumanDate(pet.dueDate);
+  const chatArea = document.getElementById('waSimChatArea');
+
+  let bubblesHTML = `
+    <div class="wa-bubble out">
+      <strong>🐾 HUELLAS CLÍNICA VETERINARIA</strong><br>
+      Hola <b>${escapeHTML(pet.owner)}</b> 👋<br><br>
+      En la ficha clínica de <b>${escapeHTML(pet.name)}</b> (${escapeHTML(pet.breed)}) tenemos programado que el <b>${escapeHTML(dueFormatted)}</b> (en ${pet.dueDays} ${pet.dueDays === 1 ? 'día' : 'días'}) le corresponde:<br>
+      💉 <b>${escapeHTML(pet.nextDose)}</b> (${formatCOP(pet.nextPrice)} COP).<br><br>
+      Para que no se te pase su protección, puedes agendar su turno en línea en 30 segundos o responder este mensaje:<br>
+      👉 <span style="color:#0284c7;text-decoration:underline">huellasvet.co/#agenda</span>
+      <div class="wa-bubble-meta">
+        <span>${pet.reminderSent ? 'Enviado hoy · Bot Automático' : 'Vista previa lista para enviar'}</span>
+        <span class="wa-checks">${pet.reminderSent ? '✓✓' : '🕒'}</span>
+      </div>
+    </div>
+  `;
+
+  if (pet.ownerReplied) {
+    bubblesHTML += `
+      <div class="wa-bubble in">
+        ¡Hola! Muchas gracias por acordarme 🙏. Sí, por favor agéndenme a <b>${escapeHTML(pet.name)}</b> para el <b>${escapeHTML(dueFormatted)} a las 10:30 AM</b>.
+        <div class="wa-bubble-meta"><span>Recibido · ${escapeHTML(pet.owner)}</span></div>
+      </div>
+      <div class="wa-bubble out">
+        ✅ ¡Listo <b>${escapeHTML(pet.owner)}</b>! El turno de <b>${escapeHTML(pet.name)}</b> para <b>${escapeHTML(pet.nextDose)}</b> quedó agendado en nuestro calendario para el <b>${escapeHTML(dueFormatted)} a las 10:30 AM</b>. ¡Los esperamos! 🐾
+        <div class="wa-bubble-meta"><span>Confirmado automáticamente</span><span class="wa-checks">✓✓</span></div>
+      </div>
+    `;
+  }
+
+  chatArea.innerHTML = bubblesHTML;
+  chatArea.scrollTop = chatArea.scrollHeight;
+
+  // Enlace wa.me real con el número del dueño (o para probar con el celular del veterinario)
+  const cleanPhone = pet.phone.replace(/\D/g, '');
+  const fullPhone = cleanPhone.startsWith('57') ? cleanPhone : '57' + cleanPhone;
+  const realMsg = encodeURIComponent(
+    `Hola ${pet.owner} 👋, te escribimos de *Huellas Clínica Veterinaria*.\n\n` +
+    `En la ficha de *${pet.name}* tenemos registrado que el *${dueFormatted}* le corresponde su *${pet.nextDose}* (${formatCOP(pet.nextPrice)} COP).\n\n` +
+    `¿Deseas que te apartemos el turno en la agenda para ese día? 🐾`
+  );
+  document.getElementById('waRealSendBtn').href = `https://wa.me/${fullPhone}?text=${realMsg}`;
+}
+
+function triggerSimulatedWhatsAppReminder() {
+  const pet = (db.pets || []).find(p => p.id === selectedPetId) || (db.pets && db.pets[0]);
+  if (!pet) return;
+  pet.reminderSent = true;
+  saveDB();
+  renderAllSystem();
+  showToast(`✅ Recordatorio de ${pet.nextDose} enviado al WhatsApp de ${pet.owner} (${pet.phone})`);
+}
+
+function sendAllPendingReminders() {
+  let count = 0;
+  (db.pets || []).forEach(p => {
+    if (!p.reminderSent) {
+      p.reminderSent = true;
+      count++;
+    }
+  });
+  saveDB();
+  renderAllSystem();
+  showToast(count > 0
+    ? `🤖 Se enviaron ${count} recordatorios automáticos de vacunas/desparasitación por WhatsApp`
+    : 'Todos los dueños ya fueron notificados por WhatsApp ✓');
+}
+
+function simulateOwnerBookingFromWhatsApp() {
+  const pet = (db.pets || []).find(p => p.id === selectedPetId) || (db.pets && db.pets[0]);
+  if (!pet) return;
+
+  pet.reminderSent = true;
+  pet.ownerReplied = true;
+
+  const newAppt = {
+    id: 'ap-wa-' + Date.now(),
+    date: pet.dueDate,
+    time: '10:30 AM',
+    pet: pet.name,
+    species: pet.species,
+    owner: pet.owner,
+    phone: pet.phone,
+    service: pet.nextDose,
+    price: pet.nextPrice,
+    status: 'Confirmada',
+    fromWhatsAppReminder: true
+  };
+
+  db.appointments.push(newAppt);
+  selectedISO = pet.dueDate;
+  const [y, m] = selectedISO.split('-').map(Number);
+  calYear = y;
+  calMonth = m - 1;
+  apptViewMode = 'day';
+  lastHighlightedApptId = newAppt.id;
+  updateFilterTabsUI();
+  saveDB();
+  renderAllSystem();
+
+  showToast(`📅 ¡${pet.owner} respondió al recordatorio! Cita de ${pet.name} creada en el Calendario (${formatHumanDate(pet.dueDate)} · 10:30 AM)`);
+}
+
+function renderPublicCarnet() {
+  const tabsEl = document.getElementById('publicCarnetTabs');
+  const cardEl = document.getElementById('publicCarnetCard');
+  if (!tabsEl || !cardEl || !db.pets || db.pets.length === 0) return;
+
+  let activePet = db.pets.find(p => p.id === publicCarnetPetId) || db.pets[0];
+  publicCarnetPetId = activePet.id;
+
+  tabsEl.innerHTML = db.pets.map(p => `
+    <button class="carnet-pill-btn ${p.id === activePet.id ? 'active' : ''}" onclick="switchPublicCarnetPet('${p.id}')">
+      🐾 ${escapeHTML(p.name)} (${escapeHTML(p.owner.split(' ')[0])})
+    </button>
+  `).join('');
+
+  const dueFormatted = formatHumanDate(activePet.dueDate);
+  cardEl.innerHTML = `
+    <div class="top">
+      <div class="ph">
+        <img src="${escapeHTML(activePet.photo)}" alt="${escapeHTML(activePet.name)}">
+      </div>
+      <div>
+        <h4>${escapeHTML(activePet.name)}</h4>
+        <div class="meta">${escapeHTML(activePet.breed)} · ${escapeHTML(activePet.age)} · Prop: ${escapeHTML(activePet.owner)}</div>
+      </div>
+    </div>
+    <div class="body">
+      ${(activePet.appliedHistory || []).map(h => `
+        <div class="vac">
+          <span class="vdot" style="background:var(--emerald)"></span>
+          <div>
+            <div class="vt">${escapeHTML(h.dose)}</div>
+            <div class="vd">${escapeHTML(h.detail)}</div>
+          </div>
+          <span class="vstat st-confirm">Al día</span>
+        </div>
+      `).join('')}
+
+      <div class="vac">
+        <span class="vdot" style="background:var(--amber)"></span>
+        <div>
+          <div class="vt">${escapeHTML(activePet.nextDose)}</div>
+          <div class="vd">Programada para: <b>${escapeHTML(dueFormatted)}</b> (${formatCOP(activePet.nextPrice)})</div>
+        </div>
+        <span class="vstat st-pend">En ${activePet.dueDays} ${activePet.dueDays === 1 ? 'día' : 'días'}</span>
+      </div>
+
+      <div style="margin-top:14px;background:var(--emerald-soft);border:1px solid rgba(13,138,114,0.25);border-radius:12px;padding:12px 14px;font-size:12.5px;color:var(--navy)">
+        <strong style="color:var(--emerald-dark);display:block;margin-bottom:3px">📲 Recordatorio automático por WhatsApp (${escapeHTML(activePet.phone)}):</strong>
+        "Hola ${escapeHTML(activePet.owner.split(' ')[0])}, te recordamos que a <b>${escapeHTML(activePet.name)}</b> le toca <b>${escapeHTML(activePet.nextDose)}</b> el ${escapeHTML(dueFormatted)} 🐾"
+        <div style="margin-top:10px">
+          <button class="btn btn-primary" style="width:100%;padding:8px 12px;font-size:12.5px" onclick="prefillBookingFromCarnet('${activePet.id}')">
+            Agendar esta dosis en línea →
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function switchPublicCarnetPet(petId) {
+  publicCarnetPetId = petId;
+  renderPublicCarnet();
+}
+
+function prefillBookingFromCarnet(petId) {
+  const pet = (db.pets || []).find(p => p.id === petId);
+  if (!pet) return;
+  document.getElementById('fPet').value = pet.name;
+  document.getElementById('fOwner').value = pet.owner;
+  document.getElementById('fPhone').value = pet.phone;
+  document.getElementById('fNotes').value = `${pet.breed} · ${pet.nextDose}`;
+  prefillBooking('Vacunación', pet.nextPrice);
+}
+
+// ============================================================================
+// 5. RENDERIZADO DEL CALENDARIO Y LISTA DE CITAS (EN EL PANEL PRIVADO)
+// ============================================================================
+function renderCalendar() {
+  const titleEl = document.getElementById('calMonthTitle');
+  titleEl.textContent = `${MESES_LARGO[calMonth]} ${calYear}`;
+
+  const gridEl = document.getElementById('calGrid');
+  gridEl.innerHTML = '';
+
+  const firstDay = new Date(calYear, calMonth, 1);
+  const startOffset = (firstDay.getDay() + 6) % 7;
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+  for (let i = 0; i < startOffset; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'cal-cell empty';
+    gridEl.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const iso = `${calYear}-${String(calMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const count = db.appointments.filter(a => a.date === iso).length;
+    const cell = document.createElement('div');
+    cell.className = 'cal-cell';
+    if (iso === todayISO) cell.classList.add('today');
+    if (iso === selectedISO) cell.classList.add('selected');
+
+    cell.innerHTML = `
+      <span>${d}</span>
+      ${count > 0 ? `<div class="cal-dots"><span class="cal-count-pill">${count} ${count === 1 ? 'cita' : 'citas'}</span></div>` : ''}
+    `;
+    cell.addEventListener('click', () => {
+      selectedISO = iso;
+      apptViewMode = 'day';
+      updateFilterTabsUI();
+      renderAllSystem();
+    });
+    gridEl.appendChild(cell);
+  }
+}
+
+function updateFilterTabsUI() {
+  document.getElementById('tabDay').classList.toggle('active', apptViewMode === 'day');
+  document.getElementById('tabAll').classList.toggle('active', apptViewMode === 'all');
+}
+
+function setApptViewMode(mode) {
+  apptViewMode = mode;
+  updateFilterTabsUI();
+  renderAppointmentsList();
+}
+
+function changeMonth(delta) {
+  calMonth += delta;
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  renderCalendar();
+}
+
+function goToday() {
+  calYear = todayDate.getFullYear();
+  calMonth = todayDate.getMonth();
+  selectedISO = todayISO;
+  apptViewMode = 'day';
+  updateFilterTabsUI();
+  renderAllSystem();
+}
+
+function renderAppointmentsList() {
+  const labelEl = document.getElementById('selectedDateLabel');
+  const listEl = document.getElementById('apptList');
+
+  let list = [];
+  if (apptViewMode === 'day') {
+    labelEl.textContent = `Citas del ${formatHumanDate(selectedISO)}${selectedISO === todayISO ? ' (Hoy)' : ''}`;
+    list = db.appointments.filter(a => a.date === selectedISO);
+  } else {
+    labelEl.textContent = `Todas las citas agendadas (${db.appointments.length})`;
+    list = [...db.appointments].sort((a, b) => a.date.localeCompare(b.date));
+  }
+
+  if (list.length === 0) {
+    listEl.innerHTML = `
+      <div style="text-align:center;padding:26px 14px;color:var(--muted);font-size:13.5px;border:1px dashed var(--border);border-radius:12px">
+        No hay citas registradas para esta fecha.<br>
+        <button class="btn-mini" style="margin-top:8px" onclick="toggleQuickApptForm()">+ Agendar cita en esta fecha</button>
+      </div>
+    `;
+    return;
+  }
+
+  listEl.innerHTML = list.map(a => {
+    const isPaid = a.status === 'Pagada';
+    const hlClass = a.id === lastHighlightedApptId ? 'highlight' : '';
+    return `
+      <div class="appt-item ${isPaid ? 'paid' : ''} ${hlClass}">
+        <div class="appt-time">
+          ${escapeHTML(a.time)}
+          <small>${escapeHTML(formatHumanDate(a.date))}</small>
+        </div>
+        <div class="appt-info">
+          <div class="pet-line">
+            <span>${escapeHTML(a.pet)} (${escapeHTML(a.species)})</span>
+            <span class="badge-st ${isPaid ? 'st-paid' : 'st-confirm'}">${isPaid ? '✓ Pagada en Caja' : escapeHTML(a.status)}</span>
+            ${a.fromWeb ? '<span class="badge-st" style="background:#fef3c7;color:#b45309">🌐 Agenda Web</span>' : ''}
+            ${a.fromWhatsAppReminder ? '<span class="badge-st" style="background:#dcfce7;color:#15803d">📲 Desde Recordatorio WhatsApp</span>' : ''}
+          </div>
+          <div class="meta-line">
+            ${escapeHTML(a.service)} · <b>${formatCOP(a.price)}</b> · Prop: ${escapeHTML(a.owner)} (${escapeHTML(a.phone)})
+          </div>
+        </div>
+        <div class="appt-actions">
+          ${!isPaid ? `
+            <button class="btn-mini charge" onclick="chargeAppointment('${a.id}')" title="Registrar cobro de esta cita en la Caja">
+              💳 Cobrar → Caja
+            </button>
+          ` : ''}
+          <button class="btn-mini del" onclick="deleteAppointment('${a.id}')" title="Cancelar / eliminar cita">✕</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleQuickApptForm() {
+  const f = document.getElementById('quickApptForm');
+  f.classList.toggle('open');
+  const dateInput = document.getElementById('qaDate');
+  if (!dateInput.value) dateInput.value = selectedISO;
+}
+
+function saveQuickAppt() {
+  const date = document.getElementById('qaDate').value || selectedISO;
+  const time = document.getElementById('qaTime').value;
+  const pet = document.getElementById('qaPet').value.trim();
+  const species = document.getElementById('qaSpecies').value;
+  const owner = document.getElementById('qaOwner').value.trim();
+  const phone = document.getElementById('qaPhone').value.trim() || '310 000 0000';
+  const [service, priceStr] = document.getElementById('qaService').value.split('|');
+
+  if (!pet || !owner) {
+    showToast('Ingresa el nombre de la mascota y del propietario');
+    return;
+  }
+
+  const newAppt = {
+    id: 'ap-' + Date.now(),
+    date,
+    time,
+    pet,
+    species,
+    owner,
+    phone,
+    service,
+    price: Number(priceStr) || 75000,
+    status: 'Confirmada'
+  };
+
+  db.appointments.push(newAppt);
+  selectedISO = date;
+  const [y, m] = date.split('-').map(Number);
+  calYear = y;
+  calMonth = m - 1;
+  lastHighlightedApptId = newAppt.id;
+  saveDB();
+
+  document.getElementById('qaPet').value = '';
+  document.getElementById('qaOwner').value = '';
+  document.getElementById('qaPhone').value = '';
+  document.getElementById('quickApptForm').classList.remove('open');
+
+  renderAllSystem();
+  showToast(`Cita de ${pet} agregada al calendario (${formatHumanDate(date)} · ${time})`);
+}
+
+function deleteAppointment(id) {
+  db.appointments = db.appointments.filter(a => a.id !== id);
+  saveDB();
+  renderAllSystem();
+  showToast('Cita eliminada del calendario');
+}
+
+// ============================================================================
+// 6. MANEJO DE CAJA Y COBRO DIRECTO DESDE CITAS
+// ============================================================================
+function chargeAppointment(id) {
+  const appt = db.appointments.find(a => a.id === id);
+  if (!appt) return;
+  if (appt.status === 'Pagada') {
+    showToast('Esta cita ya fue cobrada en caja');
+    return;
+  }
+
+  const method = document.getElementById('txMethod').value || 'Efectivo';
+  const now = new Date();
+  const hh = now.getHours();
+  const mm = String(now.getMinutes()).padStart(2, '0');
+  const timeLabel = `${((hh + 11) % 12 + 1)}:${mm} ${hh >= 12 ? 'PM' : 'AM'}`;
+
+  appt.status = 'Pagada';
+  db.transactions.unshift({
+    id: 'tx-' + Date.now(),
+    time: timeLabel,
+    type: 'in',
+    concept: `${appt.service} (Cita ${appt.time})`,
+    client: `${appt.pet} · ${appt.owner}`,
+    amount: Number(appt.price) || 75000,
+    method,
+    apptId: appt.id
+  });
+
+  saveDB();
+  renderAllSystem();
+  showToast(`Cobro registrado en Caja: ${formatCOP(appt.price)} (${method}) — ${appt.pet}`);
+}
+
+function applyPresetService(val) {
+  if (!val) return;
+  const [type, concept, amount] = val.split('|');
+  document.getElementById('txType').value = type;
+  document.getElementById('txConcept').value = concept;
+  document.getElementById('txAmount').value = amount;
+}
+
+function addManualTransaction() {
+  const type = document.getElementById('txType').value;
+  const concept = document.getElementById('txConcept').value.trim();
+  const client = document.getElementById('txClient').value.trim() || 'Mostrador / Clínica';
+  const amount = Number(document.getElementById('txAmount').value);
+  const method = document.getElementById('txMethod').value;
+
+  if (!concept || !amount || amount <= 0) {
+    showToast('Completa el concepto y un valor válido en pesos (COP)');
+    return;
+  }
+
+  const now = new Date();
+  const hh = now.getHours();
+  const mm = String(now.getMinutes()).padStart(2, '0');
+  const timeLabel = `${((hh + 11) % 12 + 1)}:${mm} ${hh >= 12 ? 'PM' : 'AM'}`;
+
+  db.transactions.unshift({
+    id: 'tx-' + Date.now(),
+    time: timeLabel,
+    type,
+    concept,
+    client,
+    amount,
+    method
+  });
+
+  document.getElementById('txConcept').value = '';
+  document.getElementById('txClient').value = '';
+  document.getElementById('txAmount').value = '';
+  document.getElementById('presetService').value = '';
+
+  saveDB();
+  renderAllSystem();
+  showToast(`${type === 'in' ? 'Ingreso' : 'Egreso'} por ${formatCOP(amount)} registrado en Caja`);
+}
+
+function deleteTransaction(id) {
+  const tx = db.transactions.find(t => t.id === id);
+  if (tx && tx.apptId) {
+    const linkedAppt = db.appointments.find(a => a.id === tx.apptId);
+    if (linkedAppt) linkedAppt.status = 'Confirmada';
+  }
+  db.transactions = db.transactions.filter(t => t.id !== id);
+  saveDB();
+  renderAllSystem();
+  showToast('Movimiento anulado de la caja');
+}
+
+function renderCaja() {
+  let totalIn = 0;
+  let totalOut = 0;
+  let countIn = 0;
+  let countOut = 0;
+  const byMethod = { Efectivo: 0, Nequi: 0, Bancolombia: 0, Tarjeta: 0 };
+
+  db.transactions.forEach(t => {
+    const val = Number(t.amount) || 0;
+    if (t.type === 'in') {
+      totalIn += val;
+      countIn++;
+      byMethod[t.method] = (byMethod[t.method] || 0) + val;
+    } else {
+      totalOut += val;
+      countOut++;
+      byMethod[t.method] = (byMethod[t.method] || 0) - val;
+    }
+  });
+
+  document.getElementById('kpiIncome').textContent = formatCOP(totalIn);
+  document.getElementById('kpiIncomeCount').textContent = `${countIn} cobros registrados`;
+  document.getElementById('kpiExpense').textContent = formatCOP(totalOut);
+  const expCountEl = document.getElementById('kpiExpenseCount');
+  if (expCountEl) expCountEl.textContent = `${countOut} salidas de caja`;
+  document.getElementById('kpiNet').textContent = formatCOP(totalIn - totalOut);
+
+  document.getElementById('mEfectivo').textContent = formatCOP(byMethod.Efectivo);
+  document.getElementById('mNequi').textContent = formatCOP(byMethod.Nequi);
+  document.getElementById('mBanco').textContent = formatCOP(byMethod.Bancolombia);
+  document.getElementById('mTarjeta').textContent = formatCOP(byMethod.Tarjeta);
+
+  const filterMethod = document.getElementById('txFilterMethod').value;
+  const filtered = filterMethod === 'ALL'
+    ? db.transactions
+    : db.transactions.filter(t => t.method === filterMethod);
+
+  const txListEl = document.getElementById('txList');
+  if (filtered.length === 0) {
+    txListEl.innerHTML = `<div style="text-align:center;padding:20px;color:var(--muted);font-size:13px">Sin movimientos para este filtro.</div>`;
+    return;
+  }
+
+  txListEl.innerHTML = filtered.map(t => `
+    <div class="tx-item">
+      <div class="tx-left">
+        <span class="tx-badge ${t.type === 'in' ? 'tx-in' : 'tx-out'}">${t.type === 'in' ? 'Ingreso' : 'Egreso'}</span>
+        <div>
+          <div class="tx-concept">${escapeHTML(t.concept)}</div>
+          <div class="tx-meta">${escapeHTML(t.client)} · <b>${escapeHTML(t.method)}</b> · ${escapeHTML(t.time)}</div>
+        </div>
+      </div>
+      <div class="tx-right">
+        <span class="tx-amount ${t.type === 'in' ? 'pos' : 'neg'}">
+          ${t.type === 'in' ? '+' : '-'}${formatCOP(t.amount)}
+        </span>
+        <button class="btn-mini del" onclick="deleteTransaction('${t.id}')" title="Anular movimiento">✕</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderKPIs() {
+  const dayCount = db.appointments.filter(a => a.date === selectedISO).length;
+  const totalCount = db.appointments.length;
+  document.getElementById('kpiDayAppts').textContent = dayCount;
+  document.getElementById('kpiTotalAppts').textContent = `${totalCount} citas activas en agenda`;
+
+  const pendingReminders = (db.pets || []).filter(p => !p.reminderSent).length;
+  const dueEl = document.getElementById('kpiDueReminders');
+  const totalPetsEl = document.getElementById('kpiTotalPets');
+  if (dueEl) dueEl.textContent = `${pendingReminders} pendientes`;
+  if (totalPetsEl) totalPetsEl.textContent = `${(db.pets || []).length} fichas guardadas`;
+}
+
+function renderAllSystem() {
+  renderPetRecords();
+  renderWhatsAppSimulator();
+  renderPublicCarnet();
+  renderCalendar();
+  renderAppointmentsList();
+  renderCaja();
+  renderKPIs();
+}
+
+// ============================================================================
+// 7. AGENDADOR PUBLICO (ENVIA LA CITA AL SISTEMA INTERNO)
+// ============================================================================
+const wizardState = { pet: null, serv: null, price: 75000, dayISO: null, dayLabel: null, slot: null };
+let currentStep = 0;
+const stepEls = document.querySelectorAll('.step');
+const snavEls = document.querySelectorAll('.snav');
+const nextBtn = document.getElementById('nextBtn');
+const backBtn = document.getElementById('backBtn');
+const bookFoot = document.getElementById('bookFoot');
+
+const daysContainer = document.getElementById('days');
+for (let i = 0; i <= 6; i++) {
+  const d = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() + i);
+  const iso = toISODate(d);
+  const label = `${DIAS_CORTO[d.getDay()]} ${d.getDate()} ${MESES_CORTO[d.getMonth()]}`;
+  const el = document.createElement('div');
+  el.className = 'day';
+  el.dataset.iso = iso;
+  el.dataset.label = label;
+  el.innerHTML = `<div class="dm">${i === 0 ? 'HOY' : DIAS_CORTO[d.getDay()]}</div><div class="dd">${d.getDate()}</div><div class="dm">${MESES_CORTO[d.getMonth()]}</div>`;
+  daysContainer.appendChild(el);
+}
+
+const slotsContainer = document.getElementById('slots');
+['08:30 AM', '09:30 AM', '10:30 AM', '11:30 AM', '02:00 PM', '03:30 PM', '04:30 PM', '05:30 PM'].forEach(t => {
+  const s = document.createElement('div');
+  s.className = 'slot';
+  s.dataset.v = t;
+  s.textContent = t;
+  slotsContainer.appendChild(s);
+});
+
+document.querySelectorAll('[data-group]').forEach(g => {
+  g.addEventListener('click', e => {
+    const t = e.target.closest('[data-v]');
+    if (!t) return;
+    const type = g.dataset.group;
+    g.querySelectorAll('[data-v]').forEach(x => x.classList.remove('sel'));
+    t.classList.add('sel');
+    if (type === 'pet') wizardState.pet = t.dataset.v;
+    if (type === 'serv') {
+      wizardState.serv = t.dataset.v;
+      wizardState.price = Number(t.dataset.price) || 75000;
+    }
+    if (type === 'slot') wizardState.slot = t.dataset.v;
+    checkWizardNext();
+  });
+});
+
+daysContainer.addEventListener('click', e => {
+  const t = e.target.closest('.day');
+  if (!t) return;
+  daysContainer.querySelectorAll('.day').forEach(x => x.classList.remove('sel'));
+  t.classList.add('sel');
+  wizardState.dayISO = t.dataset.iso;
+  wizardState.dayLabel = t.dataset.label;
+  checkWizardNext();
+});
+
+['fPet', 'fOwner', 'fPhone'].forEach(id => {
+  document.getElementById(id).addEventListener('input', checkWizardNext);
+});
+
+function checkWizardNext() {
+  let ok = false;
+  if (currentStep === 0) ok = !!wizardState.pet;
+  if (currentStep === 1) ok = !!wizardState.serv;
+  if (currentStep === 2) ok = !!(wizardState.dayISO && wizardState.slot);
+  if (currentStep === 3) {
+    const p = document.getElementById('fPet').value.trim();
+    const o = document.getElementById('fOwner').value.trim();
+    const ph = document.getElementById('fPhone').value.trim();
+    ok = p.length > 0 && o.length > 0 && ph.length >= 7;
+  }
+  nextBtn.disabled = !ok;
+}
+
+function goWizardStep(n) {
+  currentStep = n;
+  stepEls.forEach(s => s.classList.toggle('active', +s.dataset.step === currentStep));
+  snavEls.forEach(s => {
+    const i = +s.dataset.s;
+    s.classList.toggle('active', i === currentStep);
+    s.classList.toggle('done', i < currentStep);
+  });
+  backBtn.style.visibility = currentStep > 0 && currentStep < 4 ? 'visible' : 'hidden';
+  nextBtn.textContent = currentStep === 3 ? 'Confirmar reserva' : 'Continuar';
+  if (currentStep === 4) {
+    bookFoot.style.display = 'none';
+    commitPublicBooking();
+  } else {
+    bookFoot.style.display = 'flex';
+  }
+  checkWizardNext();
+}
+
+nextBtn.addEventListener('click', () => {
+  if (currentStep < 3) goWizardStep(currentStep + 1);
+  else goWizardStep(4);
+});
+backBtn.addEventListener('click', () => {
+  if (currentStep > 0) goWizardStep(currentStep - 1);
+});
+
+function commitPublicBooking() {
+  const petName = document.getElementById('fPet').value.trim();
+  const ownerName = document.getElementById('fOwner').value.trim();
+  const phoneVal = document.getElementById('fPhone').value.trim();
+  const notesVal = document.getElementById('fNotes').value.trim();
+
+  const newAppt = {
+    id: 'ap-' + Date.now(),
+    date: wizardState.dayISO,
+    time: wizardState.slot,
+    pet: petName,
+    species: wizardState.pet,
+    owner: ownerName,
+    phone: phoneVal,
+    service: wizardState.serv,
+    price: wizardState.price,
+    status: 'Confirmada',
+    fromWeb: true
+  };
+
+  db.appointments.push(newAppt);
+
+  // Si la mascota no tiene ficha aún, se crea automáticamente su Ficha Clínica y Recordatorio WhatsApp
+  if (!db.pets) db.pets = [];
+  let existingPet = db.pets.find(p => p.name.toLowerCase() === petName.toLowerCase());
+  if (!existingPet) {
+    const newPetRecord = {
+      id: 'pet-web-' + Date.now(),
+      name: petName,
+      species: wizardState.pet,
+      breed: notesVal || (wizardState.pet === 'Gato' ? 'Felino · Control' : 'Canino · Control'),
+      age: 'Registrado en Web',
+      owner: ownerName,
+      phone: phoneVal,
+      photo: wizardState.pet === 'Gato'
+        ? 'https://images.pexels.com/photos/6235116/pexels-photo-6235116.jpeg?auto=compress&cs=tinysrgb&w=240'
+        : 'https://images.pexels.com/photos/9291124/pexels-photo-9291124.jpeg?auto=compress&cs=tinysrgb&w=240',
+      appliedHistory: [
+        { dose: `Cita programada: ${wizardState.serv}`, detail: `Turno ${wizardState.dayLabel} · ${wizardState.slot}` }
+      ],
+      nextDose: wizardState.serv === 'Vacunación' ? 'Refuerzo Vacuna + Desparasitación' : 'Desparasitación Interna + Externa',
+      nextPrice: wizardState.serv === 'Vacunación' ? 65000 : 35000,
+      dueDate: wizardState.dayISO,
+      dueDays: 3,
+      reminderSent: false,
+      ownerReplied: false
+    };
+    db.pets.unshift(newPetRecord);
+    selectedPetId = newPetRecord.id;
+    publicCarnetPetId = newPetRecord.id;
+  }
+
+  selectedISO = wizardState.dayISO;
+  const [y, m] = selectedISO.split('-').map(Number);
+  calYear = y;
+  calMonth = m - 1;
+  apptViewMode = 'day';
+  lastHighlightedApptId = newAppt.id;
+  updateFilterTabsUI();
+  saveDB();
+  renderAllSystem();
+
+  document.getElementById('summary').innerHTML = `
+    <div class="row"><span>Paciente</span><span>${escapeHTML(petName)} (${escapeHTML(wizardState.pet)})</span></div>
+    <div class="row"><span>Servicio</span><span>${escapeHTML(wizardState.serv)}</span></div>
+    <div class="row"><span>Valor estimado</span><span>${formatCOP(wizardState.price)} COP</span></div>
+    <div class="row"><span>Fecha y hora</span><span>${escapeHTML(wizardState.dayLabel)} · ${escapeHTML(wizardState.slot)}</span></div>
+    <div class="row"><span>Propietario</span><span>${escapeHTML(ownerName)} · ${escapeHTML(phoneVal)}</span></div>
+  `;
+
+  const waText = encodeURIComponent(
+    `Hola Huellas Centro Médico Veterinario, acabo de agendar una cita:\n` +
+    `• Paciente: ${petName} (${wizardState.pet})\n` +
+    `• Servicio: ${wizardState.serv} (${formatCOP(wizardState.price)})\n` +
+    `• Fecha: ${wizardState.dayLabel} a las ${wizardState.slot}\n` +
+    `• Propietario: ${ownerName} (${phoneVal})`
+  );
+  document.getElementById('waConfirmLink').href = `https://wa.me/573026000109?text=${waText}`;
+
+  showToast(`¡Cita de ${petName} reservada! Ya está disponible en el Portal de Personal.`);
+}
+
+function resetBookingWizard() {
+  wizardState.pet = null;
+  wizardState.serv = null;
+  wizardState.dayISO = null;
+  wizardState.slot = null;
+  document.querySelectorAll('.chip.sel, .opt.sel, .day.sel, .slot.sel').forEach(el => el.classList.remove('sel'));
+  document.getElementById('fPet').value = '';
+  document.getElementById('fOwner').value = '';
+  document.getElementById('fPhone').value = '';
+  document.getElementById('fNotes').value = '';
+  goWizardStep(0);
+}
+
+function prefillBooking(serviceName, customPrice) {
+  const opt = Array.from(document.querySelectorAll('#agenda .opt')).find(el => el.dataset.v === serviceName);
+  if (opt) {
+    document.querySelectorAll('#agenda .opt').forEach(x => x.classList.remove('sel'));
+    opt.classList.add('sel');
+    wizardState.serv = opt.dataset.v;
+    wizardState.price = customPrice || Number(opt.dataset.price) || 75000;
+  }
+  document.getElementById('agenda').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ============================================================================
+// 8. INTERACCIONES GENERALES (HEADER, MENU MOVIL, FAQ)
+// ============================================================================
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10));
+
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+document.querySelectorAll('.q button').forEach(b => b.addEventListener('click', () => {
+  const q = b.parentElement;
+  const ans = q.querySelector('.ans');
+  const open = q.classList.contains('open');
+  document.querySelectorAll('.q').forEach(x => {
+    x.classList.remove('open');
+    x.querySelector('.ans').style.maxHeight = null;
+  });
+  if (!open) {
+    q.classList.add('open');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+  }
+}));
+
+// Inicializar Directorio Clínico y Sistema Interno
+renderDepartment('preventiva');
+renderAllSystem();
+</script>
+</body>
+</html>
